@@ -40,6 +40,7 @@ extension MainViewController: ViewConfiguration {
         setupConstraints()
         configureViews()
         setupNavigationBar()
+        setupTableView()
     }
     
     func buildHierarchy() {
@@ -107,16 +108,24 @@ extension MainViewController: ViewConfiguration {
         navigationController?.navigationBar.tintColor = .white
         
         let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
-                                     style: .plain,
-                                     target: nil,
-                                     action: nil)
-        let menuButton = UIBarButtonItem(image:
-                                    UIImage(systemName: "text.justify"),
-                                   style: .plain,
-                                   target: nil,
-                                   action: nil)
-        navigationItem.rightBarButtonItems = [menuButton, searchButton]
+                                           style: .plain,
+                                           target: nil,
+                                           action: nil)
+        let menuButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"),
+                                         style: .plain,
+                                         target: nil,
+                                         action: nil)
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"),
+                                            style: .plain,
+                                            target: nil,
+                                            action: nil)
         
+        searchButton.tintColor = .darkGray
+        settingButton.tintColor = .darkGray
+        menuButton.tintColor = .darkGray
+        
+        navigationItem.leftBarButtonItem = settingButton
+        navigationItem.rightBarButtonItems = [menuButton, searchButton]
         
         self.navigationController?.navigationBar.tintColor = .black
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
@@ -131,20 +140,21 @@ extension MainViewController: ViewConfiguration {
 
 // MARK: - UITableViewDataSource, UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        3
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: MainTableViewCell.reuseIdentifier
+        ) as? MainTableViewCell
+        else { fatalError() }
+        
+//        #if debug
+        cell.configure(Post(title: "test", content: "test", date: "test", comments: 5))
+//        #endif
+        
+        return cell
     }
 }
 

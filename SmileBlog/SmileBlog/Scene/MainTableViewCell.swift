@@ -8,6 +8,11 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
+    enum Constant {
+        static let verticalInset: CGFloat = 5
+        static let horizontalInset: CGFloat = 10
+    }
+    
     static let reuseIdentifier = "\(MainTableViewCell.self)"
     
     private lazy var titleLabel: UILabel = { return UILabel(frame: .zero) }()
@@ -36,10 +41,14 @@ extension MainTableViewCell: ViewConfiguration {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            vStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            vStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            vStackView.topAnchor.constraint(equalTo: contentView.topAnchor,
+                                            constant: Constant.verticalInset),
+            vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+                                               constant: -Constant.verticalInset),
+            vStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                constant: Constant.horizontalInset),
+            vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                 constant: -Constant.horizontalInset)
         ])
     }
     
@@ -48,11 +57,12 @@ extension MainTableViewCell: ViewConfiguration {
         
         vStackView.axis = .vertical
         vStackView.alignment = .leading
+        vStackView.distribution = .fillProportionally
         
-        titleLabel.text = "타이틀"
-        contentLabel.text = "글 내용"
-        dateLabel.text = "날짜"
-        commentCountLabel.text = "댓글 개수"
+        titleLabel.font = .preferredFont(forTextStyle: .title3)
+        contentLabel.font = .preferredFont(forTextStyle: .body)
+        dateLabel.font = .preferredFont(forTextStyle: .body)
+        commentCountLabel.font = .preferredFont(forTextStyle: .footnote)
     }
 }
 
