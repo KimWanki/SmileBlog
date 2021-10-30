@@ -14,6 +14,7 @@
 		D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFA8272C69C000300CAE /* ViewConfiguration.swift */; };
 		D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFAB272C6C7E00300CAE /* UIView+.swift */; };
 		D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB0272D097700300CAE /* MainHeaderView.swift */; };
+		D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB4272D45E100300CAE /* MainTableViewCell.swift */; };
 		D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB6272D4DDA00300CAE /* UIStackView+.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		D156CFA8272C69C000300CAE /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		D156CFAB272C6C7E00300CAE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D156CFB0272D097700300CAE /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		D156CFB4272D45E100300CAE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D156CFB6272D4DDA00300CAE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				D156CFA7272C697900300CAE /* Protocol */,
+				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
 			);
@@ -176,6 +179,7 @@
 			files = (
 				D156CF97272C65F100300CAE /* MainViewController.swift in Sources */,
 				D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */,
+				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
 				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,
 				D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */,
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,

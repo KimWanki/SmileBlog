@@ -122,6 +122,10 @@ extension MainViewController: ViewConfiguration {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
+    
+    func setupTableView() {
+        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
+    }
 }
 
 
