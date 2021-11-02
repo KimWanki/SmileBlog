@@ -33,20 +33,9 @@ final class MainViewController: UIViewController {
         return UITableView.init(frame: .zero)
     }()
     
-//    private var toolBar: UIToolbar = {
-//        let toolBarView = UIToolbar()
-//
-//        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-//        let addPostButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: nil)
-//        toolBarView.setItems([flexibleSpace, addPostButton, flexibleSpace], animated: false)
-//
-//        return toolBarView
-//    }()
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         applyViewSettings()
-        self.navigationController?.setToolbarHidden(false, animated: false)
     }
 }
 
@@ -148,6 +137,7 @@ extension MainViewController: ViewConfiguration {
         self.navigationController?.navigationBar.tintColor = .black
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.setToolbarHidden(false, animated: false)
     }
     
     func setupToolBar() {
