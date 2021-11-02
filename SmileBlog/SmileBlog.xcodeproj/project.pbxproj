@@ -18,6 +18,7 @@
 		D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB4272D45E100300CAE /* MainTableViewCell.swift */; };
 		D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB6272D4DDA00300CAE /* UIStackView+.swift */; };
 		D156CFBB272D552400300CAE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFBA272D552400300CAE /* Post.swift */; };
+		D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07642730F8980038B423 /* IntroduceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D156CFB4272D45E100300CAE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D156CFB6272D4DDA00300CAE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		D156CFBA272D552400300CAE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D17D07642730F8980038B423 /* IntroduceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		D156CF91272C65F100300CAE /* SmileBlog */ = {
 			isa = PBXGroup;
 			children = (
+				D17D0766273121490038B423 /* FMDB */,
 				D156CFB8272D54FB00300CAE /* Model */,
 				D156CFAF272CE6E200300CAE /* Entry */,
 				D156CFAA272C6C6500300CAE /* Extensions */,
@@ -82,6 +85,7 @@
 				D156CFA7272C697900300CAE /* Protocol */,
 				D156CFB2272D3DE000300CAE /* MainTableViewHeader.swift */,
 				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
+				D17D07642730F8980038B423 /* IntroduceCell.swift */,
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
 			);
@@ -120,6 +124,13 @@
 				D156CFBA272D552400300CAE /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D17D0766273121490038B423 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 			files = (
 				D156CF97272C65F100300CAE /* MainViewController.swift in Sources */,
 				D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */,
+				D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */,
 				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
 				D156CFB3272D3DE000300CAE /* MainTableViewHeader.swift in Sources */,
 				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,

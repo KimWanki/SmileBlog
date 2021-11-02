@@ -10,7 +10,8 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
     enum Constant {
         static let verticalInset: CGFloat = 5
-        static let horizontalInset: CGFloat = 10
+        static let leadingInset: CGFloat = 20
+        static let trailingInset: CGFloat = 10
     }
     
     static let reuseIdentifier = "\(MainTableViewCell.self)"
@@ -46,14 +47,14 @@ extension MainTableViewCell: ViewConfiguration {
             vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                                constant: -Constant.verticalInset),
             vStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                constant: Constant.horizontalInset),
+                                                constant: Constant.leadingInset),
             vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                                 constant: -Constant.horizontalInset)
+                                                 constant: -Constant.trailingInset)
         ])
     }
     
     func configureViews() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .white
         
         vStackView.axis = .vertical
         vStackView.alignment = .leading
@@ -68,9 +69,9 @@ extension MainTableViewCell: ViewConfiguration {
 
 extension MainTableViewCell {
     func configure(_ post: Post) {
-        titleLabel.text = "타이틀"
-        contentLabel.text = "글 내용"
-        dateLabel.text = "날짜"
-        commentCountLabel.text = "댓글 개수"
+        titleLabel.text = post.title
+        contentLabel.text = post.content
+        dateLabel.text = post.date
+        commentCountLabel.text = "\(post.comments)"
     }
 }

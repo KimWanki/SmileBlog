@@ -8,13 +8,18 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    
     enum Header {
         static let defaultHeight: CGFloat = 200
     }
     enum Constant {
         static let titleInset: CGFloat = 20
     }
+    enum BasicInfo {
+        static let title = "Life is Fruity. 인생 후르츠"
+        static let desc = "블로그 소개 - 人生フルーツ  Life is Fruity"
+    }
+    
+    private var section: [String] = ["최신 포스트", "전체 포스트"]
     
     private var headerHeightConstraint: NSLayoutConstraint?
     private var navigationHeightWithStatusBarHeight: CGFloat = Header.defaultHeight
@@ -23,13 +28,25 @@ final class MainViewController: UIViewController {
     private lazy var mainHeaderView: MainHeaderView = {
         return MainHeaderView(frame: .zero)
     }()
+    
     private lazy var tableView: UITableView = {
-        return UITableView(frame: .zero)
+        return UITableView.init(frame: .zero)
     }()
     
+//    private var toolBar: UIToolbar = {
+//        let toolBarView = UIToolbar()
+//
+//        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+//        let addPostButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: nil)
+//        toolBarView.setItems([flexibleSpace, addPostButton, flexibleSpace], animated: false)
+//
+//        return toolBarView
+//    }()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         applyViewSettings()
+        self.navigationController?.setToolbarHidden(false, animated: false)
     }
 }
 
@@ -40,6 +57,7 @@ extension MainViewController: ViewConfiguration {
         setupConstraints()
         configureViews()
         setupNavigationBar()
+        setupToolBar()
         setupTableView()
     }
     
@@ -52,8 +70,8 @@ extension MainViewController: ViewConfiguration {
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         guard let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height
         else { return }
+        
         let height = statusBarHeight + Header.defaultHeight
-        print(height)
         headerHeightConstraint =  mainHeaderView.heightAnchor.constraint(equalToConstant: navigationHeightWithStatusBarHeight)
         headerHeightConstraint?.isActive = true
         
@@ -132,29 +150,63 @@ extension MainViewController: ViewConfiguration {
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
+    func setupToolBar() {
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let addPostButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: nil)
+        
+        addPostButton.tintColor = .gray
+        
+        toolbarItems = [flexibleSpace, addPostButton, flexibleSpace]
+    }
+    
     func setupTableView() {
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
+        tableView.register(IntroduceCell.self, forCellReuseIdentifier: IntroduceCell.reuseIdentifier)
     }
 }
 
-
 // MARK: - UITableViewDataSource, UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return section.count+1
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0: return 1
+        default: return 10
+        }
+    }
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: MainTableViewCell.reuseIdentifier
-        ) as? MainTableViewCell
-        else { fatalError() }
+        if indexPath.section == 0 {
+            let cell = IntroduceCell()
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: MainTableViewCell.reuseIdentifier
+            ) as? MainTableViewCell
+            else { fatalError() }
         
-//        #if debug
-        cell.configure(Post(title: "test", content: "test", date: "test", comments: 5))
-//        #endif
-        
-        return cell
+            cell.configure(Post(title: "test", content: "test", date: "test", comments: 5))
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == .zero {
+            return BasicInfo.desc
+        } else {
+            return self.section[section-1]
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 }
 
@@ -163,7 +215,7 @@ extension MainViewController {
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         guard let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height
         else { return }
-
+        
         let height = statusBarHeight + Header.defaultHeight
         guard scrollView.contentOffset.y < 0 else {
             tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0 )
@@ -182,7 +234,7 @@ extension MainViewController {
             
             headerHeightConstraint.flatMap {
                 $0.constant = topInset + navigationHeightWithStatusBarHeight
-            }           
+            }
             self.mainHeaderView.alpha = topInset  / height + 0.2
             
             self.view.layoutIfNeeded()
