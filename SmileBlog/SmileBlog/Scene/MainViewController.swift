@@ -142,11 +142,31 @@ extension MainViewController: ViewConfiguration {
     
     func setupToolBar() {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let addPostButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: nil)
+        let addPostButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: #selector(clickNewPostButton))
         
         addPostButton.tintColor = .gray
         
         toolbarItems = [flexibleSpace, addPostButton, flexibleSpace]
+    }
+    
+    @objc func clickNewPostButton() {
+        let newPostViewController = NewPostViewController()
+        newPostViewController.view.backgroundColor = .white
+        
+        let navigationController = UINavigationController(rootViewController: newPostViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+
+        
+        
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"),
+                                            style: .plain,
+                                            target: nil,
+                                            action: nil)
+        
+        navigationController.navigationItem.leftBarButtonItem = settingButton
+        navigationController.setNavigationBarHidden(false, animated: false)
+        navigationController.setToolbarHidden(false, animated: false)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func setupTableView() {

@@ -22,6 +22,7 @@
 		D17D076A273133380038B423 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D0769273133380038B423 /* FMDBManager.swift */; };
 		D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D17D076C273134020038B423 /* libsqlite3.tbd */; };
 		D17D077127316C600038B423 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = D17D077027316C600038B423 /* FMDB */; };
+		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D17D0769273133380038B423 /* FMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
 		D17D076C273134020038B423 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D17D076E273134700038B423 /* SmileBlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmileBlog-Bridging-Header.h"; sourceTree = "<group>"; };
+		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D17D07642730F8980038B423 /* IntroduceCell.swift */,
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
+				D17D07822731A8600038B423 /* NewPostViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */,
 				D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */,
 				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
+				D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */,
 				D17D076A273133380038B423 /* FMDBManager.swift in Sources */,
 				D156CFB3272D3DE000300CAE /* MainTableViewHeader.swift in Sources */,
 				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,
