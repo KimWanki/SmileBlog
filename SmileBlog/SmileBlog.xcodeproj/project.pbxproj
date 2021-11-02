@@ -22,6 +22,7 @@
 		D17D076A273133380038B423 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D0769273133380038B423 /* FMDBManager.swift */; };
 		D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D17D076C273134020038B423 /* libsqlite3.tbd */; };
 		D17D077127316C600038B423 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = D17D077027316C600038B423 /* FMDB */; };
+		D17D07812731A0250038B423 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D17D07802731A0250038B423 /* blog.sqlite */; };
 		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		D17D0769273133380038B423 /* FMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
 		D17D076C273134020038B423 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D17D076E273134700038B423 /* SmileBlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmileBlog-Bridging-Header.h"; sourceTree = "<group>"; };
+		D17D07802731A0250038B423 /* blog.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = blog.sqlite; sourceTree = "<group>"; };
 		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 		D156CF91272C65F100300CAE /* SmileBlog */ = {
 			isa = PBXGroup;
 			children = (
+				D17D077227317E8D0038B423 /* Util */,
 				D17D0766273121490038B423 /* FMDB */,
 				D156CFB8272D54FB00300CAE /* Model */,
 				D156CFAF272CE6E200300CAE /* Entry */,
@@ -143,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				D17D0769273133380038B423 /* FMDBManager.swift */,
+				D17D07802731A0250038B423 /* blog.sqlite */,
 			);
 			path = FMDB;
 			sourceTree = "<group>";
@@ -153,6 +157,13 @@
 				D17D076C273134020038B423 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D17D077227317E8D0038B423 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D156CF9C272C65F400300CAE /* Assets.xcassets in Resources */,
+				D17D07812731A0250038B423 /* blog.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

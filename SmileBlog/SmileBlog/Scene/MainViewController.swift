@@ -18,8 +18,8 @@ final class MainViewController: UIViewController {
         static let title = "Life is Fruity. 인생 후르츠"
         static let desc = "블로그 소개 - 人生フルーツ  Life is Fruity"
     }
-    
-    private var section: [String] = ["최신 포스트", "전체 포스트"]
+    private var post: [Post] = []
+    private var section: [String] = ["최신 포스트"]
     
     private var headerHeightConstraint: NSLayoutConstraint?
     private var navigationHeightWithStatusBarHeight: CGFloat = Header.defaultHeight
@@ -35,7 +35,9 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FMDBManager.shared.copyDatabaseIfNeeds()
         applyViewSettings()
+        self.post = FMDBManager.shared.getPosts()
     }
 }
 
@@ -198,7 +200,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             ) as? MainTableViewCell
             else { fatalError() }
         
-            cell.configure(Post(title: "test", content: "test", date: "test", comments: 5))
+            cell.configure(Post(number: 1, title: "test", content: "test", date: "test"))
             return cell
         }
     }
