@@ -43,6 +43,7 @@ extension MainHeaderView: ViewConfiguration {
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
+    
     func configureViews() {
         imageView.image = UIImage(named: imageString)
         imageView.clipsToBounds = true

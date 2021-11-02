@@ -72,6 +72,5 @@ extension MainTableViewCell {
         titleLabel.text = post.title
         contentLabel.text = post.content
         dateLabel.text = post.date
-        commentCountLabel.text = "\(post.comments)"
     }
 }
