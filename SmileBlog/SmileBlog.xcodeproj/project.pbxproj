@@ -21,6 +21,7 @@
 		D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07642730F8980038B423 /* IntroduceCell.swift */; };
 		D17D076A273133380038B423 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D0769273133380038B423 /* FMDBManager.swift */; };
 		D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D17D076C273134020038B423 /* libsqlite3.tbd */; };
+		D17D077127316C600038B423 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = D17D077027316C600038B423 /* FMDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */,
+				D17D077127316C600038B423 /* FMDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +168,9 @@
 			dependencies = (
 			);
 			name = SmileBlog;
+			packageProductDependencies = (
+				D17D077027316C600038B423 /* FMDB */,
+			);
 			productName = SmileBlog;
 			productReference = D156CF8F272C65F100300CAE /* SmileBlog.app */;
 			productType = "com.apple.product-type.application";
@@ -194,6 +199,9 @@
 				Base,
 			);
 			mainGroup = D156CF86272C65F100300CAE;
+			packageReferences = (
+				D17D076F27316C600038B423 /* XCRemoteSwiftPackageReference "fmdb" */,
+			);
 			productRefGroup = D156CF90272C65F100300CAE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -431,6 +439,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D17D076F27316C600038B423 /* XCRemoteSwiftPackageReference "fmdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ccgus/fmdb.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D17D077027316C600038B423 /* FMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17D076F27316C600038B423 /* XCRemoteSwiftPackageReference "fmdb" */;
+			productName = FMDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D156CF87272C65F100300CAE /* Project object */;
 }
