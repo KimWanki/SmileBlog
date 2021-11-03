@@ -72,18 +72,23 @@ class NewPostViewController: UIViewController {
     
     @objc
     func clickDoneButton() {
-        // TODO: DB에 새로운 글 저장
+        guard titleTextField.text != nil && contentTextView.text != nil && contentTextView.textColor != .gray
+        else {
+            showInputRequestAlert()
+            return
+        }
+        
         let createDate = DateFormatter.getCurrent()
         let post = Post(number: nil, title: titleTextField.text!, content: contentTextView.text, date: createDate)
         if FMDBManager.shared.add(post) {
-            print("Saved")
+            self.dismiss(animated: true) {
+                let post = FMDBManager.shared.getPosts()
+                self.delegate?.reloadTableView(post)
+            }
         } else {
-            print("Not Saved")
+            
         }
-        self.dismiss(animated: true) {
-            let post = FMDBManager.shared.getPosts()
-            self.delegate?.reloadTableView(post)
-        }
+        
     }
 
     @objc
@@ -104,6 +109,7 @@ class NewPostViewController: UIViewController {
     }
 }
 
+// MARK: - TextView Delegate
 extension NewPostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .gray {
@@ -117,11 +123,6 @@ extension NewPostViewController: UITextViewDelegate {
             textView.text = "본문을 입력해보세요!"
             textView.textColor = .gray
         }
-    }
-    
-    func setPlaceHolder() {
-        contentTextView.text = "본문을 입력해보세요!"
-        contentTextView.textColor = .gray
     }
 }
 
@@ -149,6 +150,26 @@ extension NewPostViewController: ViewConfiguration {
     
     func configureViews() {
         contentTextView.delegate = self
-        setPlaceHolder()
+        contentTextView.textColor = .gray
+        contentTextView.text = "본문을 입력해보세요!"
+        
+    }
+}
+
+extension NewPostViewController {
+    func showInputRequestAlert() {
+        let alertController = UIAlertController(
+            title: "제목과 내용을 입력해주세요😭",
+            message: "다시 작성하러 가볼까요?🤩",
+            preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil)
+        alertController.addAction(okAction)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
