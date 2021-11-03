@@ -26,6 +26,8 @@
 		D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BA27323E8100F05301 /* DateFormatter.swift */; };
 		D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BC27325A3900F05301 /* DetailViewController.swift */; };
 		D1E618E02732740600F05301 /* CommentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618DF2732740600F05301 /* CommentField.swift */; };
+		D1E618E527329FBD00F05301 /* DetailViewContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */; };
+		D1E618E72732A1D500F05301 /* DetailViewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */; };
 		D1E618E92732AE9100F05301 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E82732AE9100F05301 /* Comment.swift */; };
 		D1E618ED2732C8A900F05301 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D1E618EC2732C8A900F05301 /* blog.sqlite */; };
 /* End PBXBuildFile section */
@@ -192,6 +194,8 @@
 			children = (
 				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
 				D17D07642730F8980038B423 /* IntroduceCell.swift */,
+				D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */,
+				D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -285,7 +289,9 @@
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,
 				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,
 				D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */,
+				D1E618E527329FBD00F05301 /* DetailViewContentCell.swift in Sources */,
 				D1E618E02732740600F05301 /* CommentField.swift in Sources */,
+				D1E618E72732A1D500F05301 /* DetailViewCommentCell.swift in Sources */,
 				D1E618E92732AE9100F05301 /* Comment.swift in Sources */,
 				D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */,
 				D156CFBB272D552400300CAE /* Post.swift in Sources */,
