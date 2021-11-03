@@ -52,6 +52,8 @@
 		D1E618BA27323E8100F05301 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		D1E618BC27325A3900F05301 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D1E618DF2732740600F05301 /* CommentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentField.swift; sourceTree = "<group>"; };
+		D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewContentCell.swift; sourceTree = "<group>"; };
+		D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +105,9 @@
 		D156CFA6272C697100300CAE /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D1E618E127329F6500F05301 /* Cells */,
 				D1E618B927322B9C00F05301 /* UIElements */,
 				D156CFA7272C697900300CAE /* Protocol */,
-				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
-				D17D07642730F8980038B423 /* IntroduceCell.swift */,
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
 				D17D07822731A8600038B423 /* NewPostViewController.swift */,
@@ -181,6 +182,15 @@
 				D1E618DF2732740600F05301 /* CommentField.swift */,
 			);
 			path = UIElements;
+			sourceTree = "<group>";
+		};
+		D1E618E127329F6500F05301 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
+				D17D07642730F8980038B423 /* IntroduceCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
