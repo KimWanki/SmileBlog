@@ -212,12 +212,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        detailViewController.configure(postList[indexPath.row])
+        
+        self.navigationController?.pushViewController(detailViewController, animated: false)
+    }
 }
 
 extension MainViewController: PostReloadable {
     func reloadTableView(_ newPost: [Post]) {
         self.postList = newPost
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 

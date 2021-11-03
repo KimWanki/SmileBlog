@@ -25,6 +25,8 @@
 		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
 		D1E618B82732297600F05301 /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618B72732297600F05301 /* TitleTextField.swift */; };
 		D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BA27323E8100F05301 /* DateFormatter.swift */; };
+		D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BC27325A3900F05301 /* DetailViewController.swift */; };
+		D1E618E02732740600F05301 /* CommentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618DF2732740600F05301 /* CommentField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D1E618B72732297600F05301 /* TitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
 		D1E618BA27323E8100F05301 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		D1E618BC27325A3900F05301 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D1E618DF2732740600F05301 /* CommentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
 				D17D07822731A8600038B423 /* NewPostViewController.swift */,
+				D1E618BC27325A3900F05301 /* DetailViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E618B72732297600F05301 /* TitleTextField.swift */,
+				D1E618DF2732740600F05301 /* CommentField.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */,
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,
 				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,
+				D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */,
+				D1E618E02732740600F05301 /* CommentField.swift in Sources */,
 				D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */,
 				D156CFBB272D552400300CAE /* Post.swift in Sources */,
 			);
