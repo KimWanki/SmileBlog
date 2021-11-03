@@ -154,26 +154,19 @@ extension MainViewController: ViewConfiguration {
     @objc func clickNewPostButton() {
         let newPostViewController = NewPostViewController()
         newPostViewController.view.backgroundColor = .white
+        newPostViewController.modalPresentationStyle = .fullScreen
+//        let navigationController = UINavigationController(rootViewController: newPostViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
         
-        let navigationController = UINavigationController(rootViewController: newPostViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-
-        
-        
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"),
-                                            style: .plain,
-                                            target: nil,
-                                            action: nil)
-        
-        navigationController.navigationItem.leftBarButtonItem = settingButton
-        navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.setToolbarHidden(false, animated: false)
-        self.present(navigationController, animated: true, completion: nil)
+        self.present(newPostViewController, animated: true, completion: nil)
     }
     
     func setupTableView() {
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
         tableView.register(IntroduceCell.self, forCellReuseIdentifier: IntroduceCell.reuseIdentifier)
+        
+        let offset: CGPoint = CGPoint(x: 0, y: -Header.defaultHeight-Constant.titleInset)
+        self.tableView.setContentOffset(offset, animated: false)
     }
 }
 
