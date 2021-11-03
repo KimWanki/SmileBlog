@@ -14,7 +14,6 @@
 		D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFA8272C69C000300CAE /* ViewConfiguration.swift */; };
 		D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFAB272C6C7E00300CAE /* UIView+.swift */; };
 		D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB0272D097700300CAE /* MainHeaderView.swift */; };
-		D156CFB3272D3DE000300CAE /* MainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB2272D3DE000300CAE /* MainTableViewHeader.swift */; };
 		D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB4272D45E100300CAE /* MainTableViewCell.swift */; };
 		D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB6272D4DDA00300CAE /* UIStackView+.swift */; };
 		D156CFBB272D552400300CAE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFBA272D552400300CAE /* Post.swift */; };
@@ -25,6 +24,7 @@
 		D17D07812731A0250038B423 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D17D07802731A0250038B423 /* blog.sqlite */; };
 		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
 		D1E618B82732297600F05301 /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618B72732297600F05301 /* TitleTextField.swift */; };
+		D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BA27323E8100F05301 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		D156CFA8272C69C000300CAE /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		D156CFAB272C6C7E00300CAE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D156CFB0272D097700300CAE /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
-		D156CFB2272D3DE000300CAE /* MainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeader.swift; sourceTree = "<group>"; };
 		D156CFB4272D45E100300CAE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D156CFB6272D4DDA00300CAE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		D156CFBA272D552400300CAE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		D17D07802731A0250038B423 /* blog.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = blog.sqlite; sourceTree = "<group>"; };
 		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D1E618B72732297600F05301 /* TitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
+		D1E618BA27323E8100F05301 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,6 @@
 			children = (
 				D1E618B927322B9C00F05301 /* UIElements */,
 				D156CFA7272C697900300CAE /* Protocol */,
-				D156CFB2272D3DE000300CAE /* MainTableViewHeader.swift */,
 				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
 				D17D07642730F8980038B423 /* IntroduceCell.swift */,
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
@@ -124,6 +123,7 @@
 			children = (
 				D156CFAB272C6C7E00300CAE /* UIView+.swift */,
 				D156CFB6272D4DDA00300CAE /* UIStackView+.swift */,
+				D1E618BA27323E8100F05301 /* DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,8 +260,8 @@
 				D1E618B82732297600F05301 /* TitleTextField.swift in Sources */,
 				D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */,
 				D17D076A273133380038B423 /* FMDBManager.swift in Sources */,
-				D156CFB3272D3DE000300CAE /* MainTableViewHeader.swift in Sources */,
 				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,
+				D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */,
 				D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */,
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,
 				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,

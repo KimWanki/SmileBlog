@@ -63,7 +63,7 @@ final class FMDBManager {
             let sql = """
             SELECT *
             FROM post
-            ORDER BY post_date DESC
+            ORDER BY post_num DESC
             """
             
             let result = try fmdb.executeQuery(sql, values: nil)
@@ -84,5 +84,25 @@ final class FMDBManager {
             print("failed: \(error.localizedDescription)")
         }
         return postList
+    }
+    
+    func add(_ post: Post) -> Bool {
+        guard post.title.isEmpty == false,
+              post.content.isEmpty == false
+        else {
+            return false
+        }
+        
+        let sql = """
+        INSERT INTO post (post_title, post_content, post_date)
+        VALUES ( ? , ? , ? )
+        """
+        
+        return fmdb.executeUpdate(sql, withArgumentsIn: [post.title, post.content, post.date])
+    }
+    
+    func remove(post: Post) -> Bool {
+        let sql = "DELETE FROM post WHERE post_num = ?"
+        return fmdb.executeUpdate(sql, withArgumentsIn: [post.number!])
     }
 }

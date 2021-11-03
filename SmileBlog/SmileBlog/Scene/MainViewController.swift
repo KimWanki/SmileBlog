@@ -18,7 +18,7 @@ final class MainViewController: UIViewController {
         static let title = "Life is Fruity. 인생 후르츠"
         static let desc = "블로그 소개 - 人生フルーツ  Life is Fruity"
     }
-    private var post: [Post] = []
+    private var postList: [Post] = []
     private var section: [String] = ["최신 포스트"]
     
     private var headerHeightConstraint: NSLayoutConstraint?
@@ -37,7 +37,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         FMDBManager.shared.copyDatabaseIfNeeds()
         applyViewSettings()
-        self.post = FMDBManager.shared.getPosts()
+        self.postList = FMDBManager.shared.getPosts()
     }
 }
 
@@ -155,9 +155,8 @@ extension MainViewController: ViewConfiguration {
         let newPostViewController = NewPostViewController()
         newPostViewController.view.backgroundColor = .white
         newPostViewController.modalPresentationStyle = .fullScreen
-//        let navigationController = UINavigationController(rootViewController: newPostViewController)
-//        navigationController.modalPresentationStyle = .fullScreen
         
+        newPostViewController.delegate = self
         self.present(newPostViewController, animated: true, completion: nil)
     }
     
@@ -179,7 +178,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        default: return 10
+        default: return postList.count
         }
     }
         
@@ -192,8 +191,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: MainTableViewCell.reuseIdentifier
             ) as? MainTableViewCell
             else { fatalError() }
-        
-            cell.configure(Post(number: 1, title: "test", content: "test", date: "test"))
+            
+            cell.configure(postList[indexPath.row])
             return cell
         }
     }
@@ -212,6 +211,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+}
+
+extension MainViewController: PostReloadable {
+    func reloadTableView(_ newPost: [Post]) {
+        self.postList = newPost
+        self.tableView.reloadData()
     }
 }
 

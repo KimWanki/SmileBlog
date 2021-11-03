@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol PostReloadable: NSObject {
+    func reloadTableView(_ newPost: [Post])
+}
+
 class NewPostViewController: UIViewController {
     enum Constant {
-        static let leadingInset: CGFloat = 20
+        static let inset: CGFloat = 20
     }
+    
+    weak var delegate: PostReloadable?
     
     private lazy var navigationBar: UINavigationBar = {
         let bar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
@@ -41,12 +47,22 @@ class NewPostViewController: UIViewController {
     
     private lazy var contentTextView: UITextView = {
         let textView = UITextView()
+        textView.font = .preferredFont(forTextStyle: .body)
         return textView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         applyViewSettings()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardShow),
+                                               name: UIResponder.keyboardDidShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
     
     @objc
@@ -57,7 +73,55 @@ class NewPostViewController: UIViewController {
     @objc
     func clickDoneButton() {
         // TODO: DB에 새로운 글 저장
-        self.dismiss(animated: true, completion: nil)
+        let createDate = DateFormatter.getCurrent()
+        let post = Post(number: nil, title: titleTextField.text!, content: contentTextView.text, date: createDate)
+        if FMDBManager.shared.add(post) {
+            print("Saved")
+        } else {
+            print("Not Saved")
+        }
+        self.dismiss(animated: true) {
+            let post = FMDBManager.shared.getPosts()
+            self.delegate?.reloadTableView(post)
+        }
+    }
+
+    @objc
+    func keyboardShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
+            contentTextView.contentInset = contentInsets
+            contentTextView.verticalScrollIndicatorInsets = contentInsets
+        }
+    }
+
+    @objc
+    func keyboardHide(_ notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        contentTextView.contentInset = contentInsets
+        contentTextView.verticalScrollIndicatorInsets = contentInsets
+    }
+}
+
+extension NewPostViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .gray {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "본문을 입력해보세요!"
+            textView.textColor = .gray
+        }
+    }
+    
+    func setPlaceHolder() {
+        contentTextView.text = "본문을 입력해보세요!"
+        contentTextView.textColor = .gray
     }
 }
 
@@ -72,14 +136,19 @@ extension NewPostViewController: ViewConfiguration {
             navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            titleTextField.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 20),
-            titleTextField.bottomAnchor.constraint(equalTo: contentTextView.topAnchor, constant: -20),
+            titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constant.inset),
+            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constant.inset),
+            titleTextField.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: Constant.inset),
+            titleTextField.bottomAnchor.constraint(equalTo: contentTextView.topAnchor, constant: -Constant.inset),
             
-            contentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constant.inset),
+            contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constant.inset),
             contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    func configureViews() {
+        contentTextView.delegate = self
+        setPlaceHolder()
     }
 }

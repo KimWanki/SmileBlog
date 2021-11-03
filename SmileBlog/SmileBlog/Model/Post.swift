@@ -8,7 +8,7 @@
 import Foundation
 
 struct Post {
-    let number: Int
+    let number: Int?
     let title: String
     let content: String
     let date: String
