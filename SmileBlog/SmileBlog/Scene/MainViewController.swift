@@ -39,6 +39,10 @@ final class MainViewController: UIViewController {
         applyViewSettings()
         self.postList = FMDBManager.shared.getPosts()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(false, animated: true)
+    }
 }
 
 // MARK: - ViewConfiguration

@@ -9,21 +9,23 @@ import UIKit
 
 class DetailViewController: UIViewController {
     private var post: Post?
+    private var commentList: [Comment] = []
     private var inputViewBottomConstraint: NSLayoutConstraint?
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
     
-    private var contentView: UITextView = {
-        let textView = UITextView(frame: .zero)
-        return textView
+    private lazy var contentTableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.register(DetailViewContentCell.self, forCellReuseIdentifier: DetailViewContentCell.reuseIdentifier)
+        tableView.register(DetailViewCommentCell.self, forCellReuseIdentifier: DetailViewCommentCell.reusableIdentifier)
+        
+        return tableView
     }()
     
     private var commentView: CommentField = {
         let commentView = CommentField(frame: .zero)
         commentView.backgroundColor = .yellow
+        commentView.addButton.addTarget(self, action: #selector(clickDoneButton), for: .touchUpInside)
         return commentView
     }()
     
@@ -66,26 +68,41 @@ class DetailViewController: UIViewController {
         UIView.animate(withDuration: duration) {
             self.view.layoutIfNeeded()
         }
-        
-        
+    }
+    
+    @objc
+    func clickDoneButton() {
+        guard let postNumber = post?.number else { return }
+        let createDate = DateFormatter.getCurrent()
+        let comment = Comment(number: nil,
+                              user: "동원",
+                              post: postNumber,
+                              content: self.commentView.commentTextField.text!,
+                              date: createDate)
+
+        if FMDBManager.shared.add(comment) {
+            print("Saved")
+        } else {
+            print("Not Saved")
+        }
+        commentList = FMDBManager.shared.getComments(postNumber)
+        DispatchQueue.main.async {
+            self.contentTableView.reloadData()
+        }
     }
 }
 
 extension DetailViewController: ViewConfiguration {
     func buildHierarchy() {
-        view.addSubviews(titleLabel, contentView, commentView)
+        view.addSubviews(contentTableView, commentView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.topAnchor),
-            
-            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: commentView.topAnchor),
+            contentTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            contentTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentTableView.bottomAnchor.constraint(equalTo: commentView.topAnchor),
             
             commentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             commentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -94,12 +111,39 @@ extension DetailViewController: ViewConfiguration {
         inputViewBottomConstraint = commentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         inputViewBottomConstraint?.isActive = true
     }
+    
+    func configureViews() {
+        self.contentTableView.dataSource = self
+        self.contentTableView.delegate = self
+        self.navigationController?.setToolbarHidden(true, animated: false)
+    }
 }
 
 extension DetailViewController {
     func configure(_ post: Post) {
         self.post = post
-        self.titleLabel.text = post.title
-        self.contentView.text = post.content
+        post.number
+            .flatMap { self.commentList = FMDBManager.shared.getComments($0) }
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return commentList.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = DetailViewContentCell()
+            
+            post.flatMap { cell.configure($0) }
+            return cell
+            
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailViewCommentCell.reusableIdentifier) as? DetailViewCommentCell
+            else { fatalError() }
+            cell.configure(commentList[indexPath.row-1])
+            return cell
+        }
     }
 }
