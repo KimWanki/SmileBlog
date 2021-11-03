@@ -93,7 +93,6 @@
 		D156CF91272C65F100300CAE /* SmileBlog */ = {
 			isa = PBXGroup;
 			children = (
-				D17D077227317E8D0038B423 /* Util */,
 				D17D0766273121490038B423 /* FMDB */,
 				D156CFB8272D54FB00300CAE /* Model */,
 				D156CFAF272CE6E200300CAE /* Entry */,
@@ -171,13 +170,6 @@
 				D17D076C273134020038B423 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D17D077227317E8D0038B423 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		D1E618B927322B9C00F05301 /* UIElements */ = {
