@@ -54,8 +54,12 @@ extension MainTableViewCell: ViewConfiguration {
     }
     
     func configureViews() {
-        self.backgroundColor = .white
-        
+        self.backgroundColor = .clear
+        self.selectedBackgroundView = {
+            let background = UIView()
+            background.backgroundColor = .clear
+            return background
+        }()
         vStackView.axis = .vertical
         vStackView.alignment = .leading
         vStackView.distribution = .fillProportionally

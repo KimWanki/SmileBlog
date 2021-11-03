@@ -53,5 +53,6 @@ extension IntroduceCell: ViewConfiguration {
     
     func configureViews() {
         self.backgroundColor = .white
+        self.selectionStyle = .none
     }
 }
