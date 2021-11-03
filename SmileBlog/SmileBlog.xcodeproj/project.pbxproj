@@ -24,6 +24,7 @@
 		D17D077127316C600038B423 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = D17D077027316C600038B423 /* FMDB */; };
 		D17D07812731A0250038B423 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D17D07802731A0250038B423 /* blog.sqlite */; };
 		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
+		D1E618B82732297600F05301 /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618B72732297600F05301 /* TitleTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D17D076E273134700038B423 /* SmileBlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmileBlog-Bridging-Header.h"; sourceTree = "<group>"; };
 		D17D07802731A0250038B423 /* blog.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = blog.sqlite; sourceTree = "<group>"; };
 		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		D1E618B72732297600F05301 /* TitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		D156CFA6272C697100300CAE /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D1E618B927322B9C00F05301 /* UIElements */,
 				D156CFA7272C697900300CAE /* Protocol */,
 				D156CFB2272D3DE000300CAE /* MainTableViewHeader.swift */,
 				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
@@ -164,6 +167,14 @@
 			children = (
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		D1E618B927322B9C00F05301 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				D1E618B72732297600F05301 /* TitleTextField.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +257,7 @@
 				D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */,
 				D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */,
 				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
+				D1E618B82732297600F05301 /* TitleTextField.swift in Sources */,
 				D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */,
 				D17D076A273133380038B423 /* FMDBManager.swift in Sources */,
 				D156CFB3272D3DE000300CAE /* MainTableViewHeader.swift in Sources */,
