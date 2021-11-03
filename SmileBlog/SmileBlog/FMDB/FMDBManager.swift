@@ -56,7 +56,9 @@ final class FMDBManager {
             dbSource.flatMap { try? fileMgr.copyItem(atPath: $0, toPath: dbPath) }
         }
     }
-    
+}
+// MARK: - Post Request
+extension FMDBManager {
     func getPosts() -> [Post] {
         var postList = [Post]()
         do {
@@ -104,5 +106,56 @@ final class FMDBManager {
     func remove(post: Post) -> Bool {
         let sql = "DELETE FROM post WHERE post_num = ?"
         return fmdb.executeUpdate(sql, withArgumentsIn: [post.number!])
+    }
+}
+
+// MARK: - Comment Request
+extension FMDBManager {
+    
+    func getComments(_ postNum: Int) -> [Comment] {
+        var commentList = [Comment]()
+        do {
+            let sql = """
+            SELECT *
+            FROM comment
+            WHERE comment_post = ?
+            ORDER BY comment_num DESC
+            """
+            
+            let result = try fmdb.executeQuery(sql, values: [postNum])
+            
+            while result.next() {
+                let commentNumber = result.int(forColumn: "comment_num")
+                let commentUser = result.string(forColumn: "comment_user")
+                let commentPost = result.int(forColumn: "comment_post")
+                let commentContent = result.string(forColumn: "comment_content")
+                let commentDate = result.string(forColumn: "comment_date")
+                
+                let comment = Comment(number: Int(commentNumber),
+                                      user: commentUser!,
+                                      post: Int(commentPost),
+                                      content: commentContent!,
+                                      date: commentDate!)
+                commentList.append(comment)
+            }
+        } catch let error as NSError {
+            print("failed: \(error.localizedDescription)")
+        }
+        return commentList
+    }
+    
+    func add(_ comment: Comment) -> Bool {
+        guard comment.user.isEmpty == false,
+              comment.content.isEmpty == false
+        else {
+            return false
+        }
+        
+        let sql = """
+        INSERT INTO comment (comment_user, comment_post, comment_content, comment_date)
+        VALUES ( ? , ? , ? , ? )
+        """
+        
+        return fmdb.executeUpdate(sql, withArgumentsIn: [comment.user, comment.post, comment.content, comment.date])
     }
 }
