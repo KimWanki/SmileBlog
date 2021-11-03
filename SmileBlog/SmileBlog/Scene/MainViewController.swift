@@ -214,10 +214,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = DetailViewController()
-        detailViewController.configure(postList[indexPath.row])
-        
-        self.navigationController?.pushViewController(detailViewController, animated: false)
+        if indexPath.section != .zero {
+            let detailViewController = DetailViewController()
+            detailViewController.configure(postList[indexPath.row])
+
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
 }
 
