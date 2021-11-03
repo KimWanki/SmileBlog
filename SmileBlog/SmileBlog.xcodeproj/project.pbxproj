@@ -27,6 +27,7 @@
 		D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BA27323E8100F05301 /* DateFormatter.swift */; };
 		D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BC27325A3900F05301 /* DetailViewController.swift */; };
 		D1E618E02732740600F05301 /* CommentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618DF2732740600F05301 /* CommentField.swift */; };
+		D1E618E92732AE9100F05301 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E82732AE9100F05301 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		D1E618DF2732740600F05301 /* CommentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentField.swift; sourceTree = "<group>"; };
 		D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewContentCell.swift; sourceTree = "<group>"; };
 		D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCommentCell.swift; sourceTree = "<group>"; };
+		D1E618E82732AE9100F05301 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				D156CFBA272D552400300CAE /* Post.swift */,
+				D1E618E82732AE9100F05301 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,
 				D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */,
 				D1E618E02732740600F05301 /* CommentField.swift in Sources */,
+				D1E618E92732AE9100F05301 /* Comment.swift in Sources */,
 				D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */,
 				D156CFBB272D552400300CAE /* Post.swift in Sources */,
 			);
