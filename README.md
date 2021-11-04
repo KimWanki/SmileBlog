@@ -172,9 +172,6 @@ MVC 구조로 작성할 경우, ViewController가 하는 역할이 많아지는�
 
 #### 👉 의존성 관리 도구 사용
 
-CocoaPod
-- [swiftLint] : 코드 컨벤션을 위해 사용
-
 SPM(Swift Package Manager)
 - [FMDB](https://github.com/ccgus/fmdb) : DB 구성을 위해 사용
     - 내부적으로 SQLite3를 사용.
