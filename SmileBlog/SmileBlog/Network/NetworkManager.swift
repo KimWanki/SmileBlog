@@ -22,7 +22,7 @@ class NetworkManager {
     
     func request<Model: URLSessionProtocol & Codable>(url: URL,
                                                   completion: @escaping (Result<Model, Error>) -> Void) {
-        session.dataTask(with: URLRequest(url: url)) { (data, response, error) in
+        session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 let unknownError = NetworkError.unknown(
                     description: error.localizedDescription
