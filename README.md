@@ -10,10 +10,9 @@
 - [Trouble shooting](#Trouble-shooting)
 
 ## 기능 및 소개
-- [메인페이지](#메인페이지)
+- [메인 페이지](#메인-페이지)
 - [글 등록](#글-등록)
-- [글 수정](#글-수정)
-- [글 삭제](#글-삭제)
+- [글 수정 및 삭제](#글-수정-및-삭제)
 - [댓글 기능](#댓글-기능)
 
 ### 메인 페이지
@@ -21,7 +20,7 @@
 > 
 > keyword: UITableView, CustomView
 
-<img src = "https://i.imgur.com/Z8Ptvy4.gif" width = 220>
+<img src = "https://user-images.githubusercontent.com/57824307/140412686-a222b1c9-120b-4700-8a90-e5cd6dd96f99.gif" width = 220>
 
 ### 글 등록
 > TabBarController를 통한 모달 뷰 전환 후 새 글 작성을 할 수 있다.
