@@ -9,17 +9,55 @@
 /* Begin PBXBuildFile section */
 		D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CF92272C65F100300CAE /* AppDelegate.swift */; };
 		D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CF94272C65F100300CAE /* SceneDelegate.swift */; };
-		D156CF97272C65F100300CAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CF96272C65F100300CAE /* ViewController.swift */; };
+		D156CF97272C65F100300CAE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CF96272C65F100300CAE /* MainViewController.swift */; };
 		D156CF9C272C65F400300CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D156CF9B272C65F400300CAE /* Assets.xcassets */; };
+		D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFA8272C69C000300CAE /* ViewConfiguration.swift */; };
+		D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFAB272C6C7E00300CAE /* UIView+.swift */; };
+		D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB0272D097700300CAE /* MainHeaderView.swift */; };
+		D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB4272D45E100300CAE /* MainTableViewCell.swift */; };
+		D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFB6272D4DDA00300CAE /* UIStackView+.swift */; };
+		D156CFBB272D552400300CAE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156CFBA272D552400300CAE /* Post.swift */; };
+		D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07642730F8980038B423 /* IntroduceCell.swift */; };
+		D17D076A273133380038B423 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D0769273133380038B423 /* FMDBManager.swift */; };
+		D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D17D076C273134020038B423 /* libsqlite3.tbd */; };
+		D17D077127316C600038B423 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = D17D077027316C600038B423 /* FMDB */; };
+		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
+		D1E618B82732297600F05301 /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618B72732297600F05301 /* TitleTextField.swift */; };
+		D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BA27323E8100F05301 /* DateFormatter.swift */; };
+		D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BC27325A3900F05301 /* DetailViewController.swift */; };
+		D1E618E02732740600F05301 /* CommentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618DF2732740600F05301 /* CommentField.swift */; };
+		D1E618E527329FBD00F05301 /* DetailViewContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */; };
+		D1E618E72732A1D500F05301 /* DetailViewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */; };
+		D1E618E92732AE9100F05301 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E82732AE9100F05301 /* Comment.swift */; };
+		D1E618ED2732C8A900F05301 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D1E618EC2732C8A900F05301 /* blog.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D156CF8F272C65F100300CAE /* SmileBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D156CF92272C65F100300CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D156CF94272C65F100300CAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D156CF96272C65F100300CAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D156CF96272C65F100300CAE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D156CF9B272C65F400300CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D156CFA0272C65F400300CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D156CFA8272C69C000300CAE /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		D156CFAB272C6C7E00300CAE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		D156CFB0272D097700300CAE /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		D156CFB4272D45E100300CAE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		D156CFB6272D4DDA00300CAE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		D156CFBA272D552400300CAE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D17D07642730F8980038B423 /* IntroduceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceCell.swift; sourceTree = "<group>"; };
+		D17D0769273133380038B423 /* FMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
+		D17D076C273134020038B423 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D17D076E273134700038B423 /* SmileBlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmileBlog-Bridging-Header.h"; sourceTree = "<group>"; };
+		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		D1E618B72732297600F05301 /* TitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
+		D1E618BA27323E8100F05301 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		D1E618BC27325A3900F05301 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D1E618DF2732740600F05301 /* CommentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentField.swift; sourceTree = "<group>"; };
+		D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewContentCell.swift; sourceTree = "<group>"; };
+		D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCommentCell.swift; sourceTree = "<group>"; };
+		D1E618E82732AE9100F05301 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		D1E618EC2732C8A900F05301 /* blog.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = blog.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */,
+				D17D077127316C600038B423 /* FMDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +78,7 @@
 			children = (
 				D156CF91272C65F100300CAE /* SmileBlog */,
 				D156CF90272C65F100300CAE /* Products */,
+				D17D076B273134020038B423 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +93,103 @@
 		D156CF91272C65F100300CAE /* SmileBlog */ = {
 			isa = PBXGroup;
 			children = (
-				D156CF92272C65F100300CAE /* AppDelegate.swift */,
-				D156CF94272C65F100300CAE /* SceneDelegate.swift */,
-				D156CF96272C65F100300CAE /* ViewController.swift */,
+				D17D0766273121490038B423 /* FMDB */,
+				D156CFB8272D54FB00300CAE /* Model */,
+				D156CFAF272CE6E200300CAE /* Entry */,
+				D156CFAA272C6C6500300CAE /* Extensions */,
+				D156CFA6272C697100300CAE /* Scene */,
 				D156CF9B272C65F400300CAE /* Assets.xcassets */,
 				D156CFA0272C65F400300CAE /* Info.plist */,
+				D17D076E273134700038B423 /* SmileBlog-Bridging-Header.h */,
 			);
 			path = SmileBlog;
+			sourceTree = "<group>";
+		};
+		D156CFA6272C697100300CAE /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D1E618E127329F6500F05301 /* Cells */,
+				D1E618B927322B9C00F05301 /* UIElements */,
+				D156CFA7272C697900300CAE /* Protocol */,
+				D156CF96272C65F100300CAE /* MainViewController.swift */,
+				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
+				D17D07822731A8600038B423 /* NewPostViewController.swift */,
+				D1E618BC27325A3900F05301 /* DetailViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D156CFA7272C697900300CAE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D156CFA8272C69C000300CAE /* ViewConfiguration.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D156CFAA272C6C6500300CAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D156CFAB272C6C7E00300CAE /* UIView+.swift */,
+				D156CFB6272D4DDA00300CAE /* UIStackView+.swift */,
+				D1E618BA27323E8100F05301 /* DateFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D156CFAF272CE6E200300CAE /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				D156CF92272C65F100300CAE /* AppDelegate.swift */,
+				D156CF94272C65F100300CAE /* SceneDelegate.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		D156CFB8272D54FB00300CAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D156CFBA272D552400300CAE /* Post.swift */,
+				D1E618E82732AE9100F05301 /* Comment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D17D0766273121490038B423 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				D17D0769273133380038B423 /* FMDBManager.swift */,
+				D1E618EC2732C8A900F05301 /* blog.sqlite */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		D17D076B273134020038B423 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D17D076C273134020038B423 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1E618B927322B9C00F05301 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				D1E618B72732297600F05301 /* TitleTextField.swift */,
+				D1E618DF2732740600F05301 /* CommentField.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		D1E618E127329F6500F05301 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D156CFB4272D45E100300CAE /* MainTableViewCell.swift */,
+				D17D07642730F8980038B423 /* IntroduceCell.swift */,
+				D1E618E427329FBD00F05301 /* DetailViewContentCell.swift */,
+				D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +208,9 @@
 			dependencies = (
 			);
 			name = SmileBlog;
+			packageProductDependencies = (
+				D17D077027316C600038B423 /* FMDB */,
+			);
 			productName = SmileBlog;
 			productReference = D156CF8F272C65F100300CAE /* SmileBlog.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +239,9 @@
 				Base,
 			);
 			mainGroup = D156CF86272C65F100300CAE;
+			packageReferences = (
+				D17D076F27316C600038B423 /* XCRemoteSwiftPackageReference "fmdb" */,
+			);
 			productRefGroup = D156CF90272C65F100300CAE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D156CF9C272C65F400300CAE /* Assets.xcassets in Resources */,
+				D1E618ED2732C8A900F05301 /* blog.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,9 +268,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D156CF97272C65F100300CAE /* ViewController.swift in Sources */,
+				D156CF97272C65F100300CAE /* MainViewController.swift in Sources */,
+				D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */,
+				D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */,
+				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
+				D1E618B82732297600F05301 /* TitleTextField.swift in Sources */,
+				D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */,
+				D17D076A273133380038B423 /* FMDBManager.swift in Sources */,
+				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,
+				D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */,
 				D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */,
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,
+				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,
+				D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */,
+				D1E618E527329FBD00F05301 /* DetailViewContentCell.swift in Sources */,
+				D1E618E02732740600F05301 /* CommentField.swift in Sources */,
+				D1E618E72732A1D500F05301 /* DetailViewCommentCell.swift in Sources */,
+				D1E618E92732AE9100F05301 /* Comment.swift in Sources */,
+				D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */,
+				D156CFBB272D552400300CAE /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.dongguk.cs.SmileBlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wankikim/Documents/github/SmileBlog/SmileBlog/SmileBlog/SmileBlog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,6 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.dongguk.cs.SmileBlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wankikim/Documents/github/SmileBlog/SmileBlog/SmileBlog/SmileBlog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -331,6 +487,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D17D076F27316C600038B423 /* XCRemoteSwiftPackageReference "fmdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ccgus/fmdb.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D17D077027316C600038B423 /* FMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17D076F27316C600038B423 /* XCRemoteSwiftPackageReference "fmdb" */;
+			productName = FMDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D156CF87272C65F100300CAE /* Project object */;
 }
