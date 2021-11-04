@@ -26,17 +26,17 @@ final class DetailViewController: UIViewController {
     private lazy var commentView: CommentField = {
         let commentView = CommentField(frame: .zero)
         commentView.backgroundColor = .systemGray6
-        
-        commentView.addButton.addTarget(self, action: #selector(clickAddButton), for: .touchUpInside)
+        commentView.addButton.addTarget(self, action: #selector(clickSendButton), for: .touchUpInside)
         return commentView
     }()
+    
     private lazy var cancelButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(clickCancelButton))
         return barButton
     }()
     
     private lazy var modifyButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(clickModifyButton))
         return barButton
     }()
     
@@ -89,7 +89,7 @@ extension DetailViewController {
     }
     
     @objc
-    func clickAddButton() {
+    func clickSendButton() {
         guard let postNumber = post?.number else { return }
         
         let createDate = DateFormatter.getCurrent()
@@ -98,7 +98,7 @@ extension DetailViewController {
                               post: postNumber,
                               content: self.commentView.commentTextField.text!,
                               date: createDate)
-            
+        
         if FMDBManager.shared.add(comment) {
             commentList = FMDBManager.shared.getComments(postNumber)
             self.commentView.commentTextField.text = nil
@@ -112,23 +112,41 @@ extension DetailViewController {
     }
     
     @objc
+    func clickModifyButton() {
+        let updatePostViewController = UpdatePostViewController()
+        guard let post = post else { return }
+        updatePostViewController.configure(post)
+        updatePostViewController.delegate = self
+        self.navigationController?.pushViewController(updatePostViewController, animated: true)
+    }
+    
+    @objc
     func clickTrashButton() {
-        guard let selectedPost = self.post else { return }
-        if FMDBManager.shared.remove(post: selectedPost) {
-            print("delete")
-        }
-        let post = FMDBManager.shared.getPosts()
-        delegate?.reloadTableView(post)
-        self.navigationController?.popViewController(animated: true)
-        self.tabBarController?.tabBar.isHidden = false
+        showDeleteAlert()
     }
     
     @objc
     func clickCancelButton() {
+        reloadMainTableView()
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    func reloadMainTableView() {
+        let post = FMDBManager.shared.getPosts()
+        delegate?.reloadTableView(post)
+        navigationController?.popViewController(animated: true)
+        tabBarController?.tabBar.isHidden = false
+    }
+}
+// MARK: - PostReloadable
+extension DetailViewController: PostReloadable {
+    func updatePost(_ newPost: Post) {
+        self.post = newPost
+        DispatchQueue.main.async {
+            self.contentTableView.reloadData()
+        }
+    }
 }
 
 // MARK: - View Configuration
@@ -182,7 +200,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             
             post.flatMap { cell.configure($0) }
             return cell
-            
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailViewCommentCell.reusableIdentifier) as? DetailViewCommentCell
             else { fatalError() }
@@ -200,5 +217,29 @@ extension DetailViewController: UINavigationBarDelegate {
 }
 
 // MARK: - Alert Controller
-// TODO: 삭제 버튼 클릭시 Alert 띄우기
-
+extension DetailViewController {
+    func showDeleteAlert() {
+        let alertController = UIAlertController(
+            title: "글을 정말 삭제하실건가요?",
+            message: "삭제된 글은 복구할 수 없습니다.",
+            preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(
+            title: "네",
+            style: .default) { [weak self] _ in
+                guard let selectedPost = self?.post else { return }
+                if FMDBManager.shared.remove(post: selectedPost) {
+                    print("delete")
+                }
+                self?.reloadMainTableView()
+            }
+        let cancelAction = UIAlertAction(title: "아니오",
+                                         style: .cancel,
+                                         handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+}

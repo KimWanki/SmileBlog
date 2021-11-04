@@ -32,6 +32,8 @@
 		D1E618ED2732C8A900F05301 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D1E618EC2732C8A900F05301 /* blog.sqlite */; };
 		D1E618FE2733976100F05301 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618FD2733976100F05301 /* MainTabBarController.swift */; };
 		D1E619002733984900F05301 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618FF2733984900F05301 /* UserSettingViewController.swift */; };
+		D1E619042733DD8100F05301 /* UpdatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E619032733DD8100F05301 /* UpdatePostViewController.swift */; };
+		D1E619062733E6C500F05301 /* PostReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E619052733E6C500F05301 /* PostReloadable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		D1E618EC2732C8A900F05301 /* blog.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = blog.sqlite; sourceTree = "<group>"; };
 		D1E618FD2733976100F05301 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D1E618FF2733984900F05301 /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
+		D1E619032733DD8100F05301 /* UpdatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostViewController.swift; sourceTree = "<group>"; };
+		D1E619052733E6C500F05301 /* PostReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReloadable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
 				D17D07822731A8600038B423 /* NewPostViewController.swift */,
+				D1E619032733DD8100F05301 /* UpdatePostViewController.swift */,
 				D1E618BC27325A3900F05301 /* DetailViewController.swift */,
 				D1E618FF2733984900F05301 /* UserSettingViewController.swift */,
 			);
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				D156CFA8272C69C000300CAE /* ViewConfiguration.swift */,
+				D1E619052733E6C500F05301 /* PostReloadable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -278,6 +284,8 @@
 				D156CFA9272C69C000300CAE /* ViewConfiguration.swift in Sources */,
 				D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */,
 				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
+				D1E619042733DD8100F05301 /* UpdatePostViewController.swift in Sources */,
+				D1E619062733E6C500F05301 /* PostReloadable.swift in Sources */,
 				D1E618B82732297600F05301 /* TitleTextField.swift in Sources */,
 				D1E618FE2733976100F05301 /* MainTabBarController.swift in Sources */,
 				D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */,

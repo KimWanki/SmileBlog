@@ -103,6 +103,22 @@ extension FMDBManager {
         return fmdb.executeUpdate(sql, withArgumentsIn: [post.title, post.content, post.date])
     }
     
+    func update(postNum: Int, title: String, content: String) -> Bool {
+        do {
+            let sql = """
+            UPDATE post
+            SET post_title = ?, post_content = ?
+            WHERE post_num = ?
+            """
+            
+            try fmdb.executeUpdate(sql, values: [title, content, postNum])
+            return true
+        } catch let error as NSError {
+            print("UPDATE Error: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
     func remove(post: Post) -> Bool {
         let sql = "DELETE FROM post WHERE post_num = ?"
         return fmdb.executeUpdate(sql, withArgumentsIn: [post.number!])

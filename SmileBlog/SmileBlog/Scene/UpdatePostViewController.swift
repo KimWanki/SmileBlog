@@ -1,38 +1,18 @@
 //
-//  NewPostViewController.swift
+//  ModifyPostViewController.swift
 //  SmileBlog
 //
-//  Created by WANKI KIM on 2021/11/03.
+//  Created by WANKI KIM on 2021/11/04.
 //
 
 import UIKit
 
-final class NewPostViewController: UIViewController {
+final class UpdatePostViewController: UIViewController {
     enum Constant {
         static let inset: CGFloat = 20
     }
-    
+    private var post: Post?
     weak var delegate: PostReloadable?
-    
-    private lazy var navigationBar: UINavigationBar = {
-        let bar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
-
-        let navItem = UINavigationItem(title: "새 글 쓰기")
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
-                                         target: self,
-                                         action: #selector(clickCancelButton))
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-                                       target: self,
-                                       action: #selector(clickDoneButton))
-        
-        cancelButton.tintColor = .gray
-        doneButton.tintColor = .gray
-        
-        navItem.leftBarButtonItem = cancelButton
-        navItem.rightBarButtonItem = doneButton
-        bar.setItems([navItem], animated: false)
-        return bar
-    }()
     
     private lazy var titleTextField: TitleTextField = {
         let textField = TitleTextField(frame: .zero)
@@ -43,14 +23,25 @@ final class NewPostViewController: UIViewController {
     
     private lazy var contentTextView: UITextView = {
         let textView = UITextView()
+        textView.text = "본문을 입력해보세요!"
         textView.font = .preferredFont(forTextStyle: .body)
         return textView
     }()
-
+    
+    private lazy var cancelButton: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(clickCancelButton))
+        return barButton
+    }()
+    
+    private lazy var finishButton: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(clickFinishButton))
+        return barButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyViewSettings()
-
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardShow),
                                                name: UIResponder.keyboardDidShowNotification,
@@ -63,32 +54,7 @@ final class NewPostViewController: UIViewController {
 }
 
 // MARK: - User Event
-extension NewPostViewController {
-    @objc
-    func clickCancelButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc
-    func clickDoneButton() {
-        guard titleTextField.text != nil && contentTextView.text != nil && contentTextView.textColor != .gray
-        else {
-            showInputRequestAlert()
-            return
-        }
-        
-        let createDate = DateFormatter.getCurrent()
-        let post = Post(number: nil, title: titleTextField.text!, content: contentTextView.text, date: createDate)
-        if FMDBManager.shared.add(post) {
-            self.dismiss(animated: true) {
-                let post = FMDBManager.shared.getPosts()
-                self.delegate?.reloadTableView(post)
-            }
-        } else {
-            debugPrint("Can't Save Post to Database")
-        }
-    }
-
+extension UpdatePostViewController {
     @objc
     func keyboardShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -98,17 +64,34 @@ extension NewPostViewController {
             contentTextView.verticalScrollIndicatorInsets = contentInsets
         }
     }
-
+    
     @objc
     func keyboardHide(_ notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         contentTextView.contentInset = contentInsets
         contentTextView.verticalScrollIndicatorInsets = contentInsets
     }
+    
+    @objc
+    func clickCancelButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func clickFinishButton() {
+        guard let postNum = post?.number
+        else { return }
+        let newPost = Post(number: post?.number, title: titleTextField.text!, content: contentTextView.text, date: post!.date)
+        if FMDBManager.shared.update(postNum: postNum,
+                                     title: titleTextField.text!, content: contentTextView.text!) {
+            self.delegate?.updatePost(newPost)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - TextView Delegate
-extension NewPostViewController: UITextViewDelegate {
+extension UpdatePostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .gray {
             textView.text = nil
@@ -125,20 +108,16 @@ extension NewPostViewController: UITextViewDelegate {
 }
 
 // MARK: - ViewConfiguration
-extension NewPostViewController: ViewConfiguration {
+extension UpdatePostViewController: ViewConfiguration {
     func buildHierarchy() {
-        view.addSubviews(navigationBar, titleTextField, contentTextView)
+        view.addSubviews(titleTextField, contentTextView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
             titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constant.inset),
             titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constant.inset),
-            titleTextField.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: Constant.inset),
+            titleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.inset),
             titleTextField.bottomAnchor.constraint(equalTo: contentTextView.topAnchor, constant: -Constant.inset),
             
             contentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constant.inset),
@@ -151,14 +130,17 @@ extension NewPostViewController: ViewConfiguration {
         view.backgroundColor = .white
         
         contentTextView.delegate = self
-        contentTextView.textColor = .gray
-        contentTextView.text = "본문을 입력해보세요!"
         
+        self.titleTextField.text = post?.title
+        self.contentTextView.text = post?.content
+        
+        self.navigationItem.leftBarButtonItem = cancelButton
+        self.navigationItem.rightBarButtonItem = finishButton
     }
 }
 
 // MARK: - AlertController
-extension NewPostViewController {
+extension UpdatePostViewController {
     func showInputRequestAlert() {
         let alertController = UIAlertController(
             title: "제목과 내용을 입력해주세요😭",
@@ -173,5 +155,11 @@ extension NewPostViewController {
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+}
+
+extension UpdatePostViewController {
+    func configure(_ post: Post) {
+        self.post = post
     }
 }
