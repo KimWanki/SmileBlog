@@ -70,6 +70,13 @@ extension DetailViewContentCell: ViewConfiguration {
             background.backgroundColor = .clear
             return background
         }()
+        
+        titleLabel.font = .preferredFont(forTextStyle: .title2)
+        
+        dateLabel.textColor = .darkGray
+        dateLabel.font = .preferredFont(forTextStyle: .footnote)
+        
+        contentLabel.font = .preferredFont(forTextStyle: .body)
     }
 }
 

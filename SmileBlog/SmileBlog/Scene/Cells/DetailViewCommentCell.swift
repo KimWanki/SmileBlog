@@ -88,6 +88,13 @@ extension DetailViewCommentCell: ViewConfiguration {
         }()
         userImageView.tintColor = .gray
         commentLabel.numberOfLines = -1
+        
+        nickNameLabel.font = .preferredFont(forTextStyle: .body)
+        
+        dateLabel.textColor = .darkGray
+        dateLabel.font = .preferredFont(forTextStyle: .footnote)
+        
+        commentLabel.font = .preferredFont(forTextStyle: .body)
     }
 }
 

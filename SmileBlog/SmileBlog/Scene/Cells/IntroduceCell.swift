@@ -18,10 +18,11 @@ final class IntroduceCell: UITableViewCell {
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.text = """
         iOS 를 좋아하는 개발자 루얀입니다.
-        ML 🍏 IOS
+        
+        #ML #IOS
         """
         return label
     }()

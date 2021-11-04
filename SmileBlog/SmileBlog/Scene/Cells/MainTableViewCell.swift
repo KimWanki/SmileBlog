@@ -67,7 +67,8 @@ extension MainTableViewCell: ViewConfiguration {
         
         titleLabel.font = .preferredFont(forTextStyle: .title3)
         contentLabel.font = .preferredFont(forTextStyle: .body)
-        dateLabel.font = .preferredFont(forTextStyle: .body)
+        dateLabel.font = .preferredFont(forTextStyle: .footnote)
+        dateLabel.textColor = .darkGray
         commentCountLabel.font = .preferredFont(forTextStyle: .footnote)
     }
 }
