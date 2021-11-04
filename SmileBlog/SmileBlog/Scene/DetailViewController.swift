@@ -30,6 +30,10 @@ final class DetailViewController: UIViewController {
         commentView.addButton.addTarget(self, action: #selector(clickAddButton), for: .touchUpInside)
         return commentView
     }()
+    private lazy var cancelButton: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(clickCancelButton))
+        return barButton
+    }()
     
     private lazy var modifyButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
@@ -54,7 +58,10 @@ final class DetailViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
-    
+}
+
+// MARK: - User Event
+extension DetailViewController {
     @objc
     func keyboardShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -113,7 +120,15 @@ final class DetailViewController: UIViewController {
         let post = FMDBManager.shared.getPosts()
         delegate?.reloadTableView(post)
         self.navigationController?.popViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
+    
+    @objc
+    func clickCancelButton() {
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.popViewController(animated: true)
+    }
+
 }
 
 // MARK: - View Configuration
@@ -142,6 +157,7 @@ extension DetailViewController: ViewConfiguration {
         self.contentTableView.dataSource = self
         self.contentTableView.delegate = self
         self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationItem.leftBarButtonItem = cancelButton
         self.navigationItem.rightBarButtonItems = [deleteButton, modifyButton]
     }
 }
@@ -175,3 +191,14 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+// MARK: - UINavigationBarDelegate
+extension DetailViewController: UINavigationBarDelegate {
+    public func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+}
+
+// MARK: - Alert Controller
+// TODO: 삭제 버튼 클릭시 Alert 띄우기
+

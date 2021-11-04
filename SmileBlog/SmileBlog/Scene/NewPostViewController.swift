@@ -152,6 +152,8 @@ extension NewPostViewController: ViewConfiguration {
     }
     
     func configureViews() {
+        view.backgroundColor = .white
+        
         contentTextView.delegate = self
         contentTextView.textColor = .gray
         contentTextView.text = "본문을 입력해보세요!"
