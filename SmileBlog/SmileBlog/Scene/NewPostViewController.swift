@@ -18,12 +18,15 @@ final class NewPostViewController: UIViewController {
         let bar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
 
         let navItem = UINavigationItem(title: "새 글 쓰기")
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
-                                         target: self,
-                                         action: #selector(clickCancelButton))
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-                                       target: self,
-                                       action: #selector(clickDoneButton))
+        let cancelButton = UIBarButtonItem.init(title: "취소",
+                                                style: .plain,
+                                                target: self,
+                                                action: #selector(clickCancelButton))
+
+        let doneButton = UIBarButtonItem.init(title: "완료",
+                                              style: .plain,
+                                              target: self,
+                                              action: #selector(clickDoneButton))
         
         cancelButton.tintColor = .gray
         doneButton.tintColor = .gray
@@ -44,6 +47,7 @@ final class NewPostViewController: UIViewController {
     private lazy var contentTextView: UITextView = {
         let textView = UITextView()
         textView.font = .preferredFont(forTextStyle: .body)
+        textView.autocorrectionType = .no
         return textView
     }()
 

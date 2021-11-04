@@ -31,12 +31,13 @@ final class DetailViewController: UIViewController {
     }()
     
     private lazy var cancelButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(clickCancelButton))
+        let barButton = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: #selector(clickCancelButton))
         return barButton
     }()
     
     private lazy var modifyButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(clickModifyButton))
+        let barButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(clickModifyButton))
+//        let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(clickModifyButton))
         return barButton
     }()
     
@@ -82,7 +83,7 @@ extension DetailViewController {
         guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval
         else { return }
         
-        inputViewBottomConstraint?.constant = .zero
+        inputViewBottomConstraint?.constant = -30
         UIView.animate(withDuration: duration) {
             self.view.layoutIfNeeded()
         }
@@ -166,7 +167,7 @@ extension DetailViewController: ViewConfiguration {
             commentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             commentView.heightAnchor.constraint(equalToConstant: 60)
         ])
-        inputViewBottomConstraint = commentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        inputViewBottomConstraint = commentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
         inputViewBottomConstraint?.isActive = true
     }
     

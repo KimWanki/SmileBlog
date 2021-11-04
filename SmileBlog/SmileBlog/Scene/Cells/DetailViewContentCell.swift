@@ -16,6 +16,7 @@ final class DetailViewContentCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = -1
         return label
     }()
     

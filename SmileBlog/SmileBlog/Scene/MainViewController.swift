@@ -29,7 +29,7 @@ final class MainViewController: UIViewController {
         return MainHeaderView(frame: .zero)
     }()
     
-    private lazy var tableView: UITableView = {
+    private lazy var postTableView: UITableView = {
         return UITableView.init(frame: .zero)
     }()
     
@@ -52,7 +52,7 @@ extension MainViewController: ViewConfiguration {
     }
     
     func buildHierarchy() {
-        view.addSubviews(mainHeaderView, tableView, subTitleLabel)
+        view.addSubviews(mainHeaderView, postTableView, subTitleLabel)
         mainHeaderView.insertSubview(subTitleLabel, aboveSubview: mainHeaderView)
     }
     
@@ -77,27 +77,28 @@ extension MainViewController: ViewConfiguration {
             subTitleLabel.bottomAnchor.constraint(equalTo: mainHeaderView.bottomAnchor,
                                                   constant: -Constant.titleInset),
             
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            postTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            postTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            postTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         let tableViewInset = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = tableViewInset
+        postTableView.contentInset = tableViewInset
     }
     
     func configureViews() {
         view.bringSubviewToFront(mainHeaderView)
-        
+        view.clipsToBounds = true
         subTitleLabel.text = "Life is Fruity. 인생 후르츠"
         subTitleLabel.font = .preferredFont(forTextStyle: .title3)
         subTitleLabel.font = .boldSystemFont(ofSize: 20)
         subTitleLabel.adjustsFontSizeToFitWidth = true
         subTitleLabel.textColor = .white
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        postTableView.dataSource = self
+        postTableView.delegate = self
+    
     }
     
     func setupNavigationBar() {
@@ -137,11 +138,11 @@ extension MainViewController: ViewConfiguration {
     }
 
     func setupTableView() {
-        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
-        tableView.register(IntroduceCell.self, forCellReuseIdentifier: IntroduceCell.reuseIdentifier)
+        postTableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
+        postTableView.register(IntroduceCell.self, forCellReuseIdentifier: IntroduceCell.reuseIdentifier)
         
         let offset: CGPoint = CGPoint(x: 0, y: -Header.defaultHeight-Constant.titleInset)
-        self.tableView.setContentOffset(offset, animated: false)
+        self.postTableView.setContentOffset(offset, animated: false)
     }
 }
 
@@ -220,7 +221,7 @@ extension MainViewController: PostReloadable {
         self.postList = newPost
         self.navigationController?.navigationBar.isTranslucent = true
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.postTableView.reloadData()
         }
     }
 }
@@ -233,7 +234,7 @@ extension MainViewController {
         
         let height = statusBarHeight + Header.defaultHeight
         guard scrollView.contentOffset.y < 0 else {
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0 )
+            postTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0 )
             headerHeightConstraint.flatMap {
                 if $0.constant > .zero {
                     $0.constant = .zero
@@ -245,7 +246,7 @@ extension MainViewController {
         
         guard scrollView.contentOffset.y <= -height else {
             let topInset = abs(scrollView.contentOffset.y)
-            tableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0 )
+            postTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0 )
             
             headerHeightConstraint.flatMap {
                 $0.constant = topInset + navigationHeightWithStatusBarHeight
