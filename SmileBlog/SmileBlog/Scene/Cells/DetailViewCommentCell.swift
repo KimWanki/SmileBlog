@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewCommentCell: UITableViewCell {
+final class DetailViewCommentCell: UITableViewCell {
     enum Constant {
         static let userImageSize: CGFloat = 25
         static let inset: CGFloat = 10
@@ -81,7 +81,13 @@ extension DetailViewCommentCell: ViewConfiguration {
     }
     
     func configureViews() {
+        self.selectedBackgroundView = {
+            let background = UIView()
+            background.backgroundColor = .clear
+            return background
+        }()
         userImageView.tintColor = .gray
+        commentLabel.numberOfLines = -1
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IntroduceCell: UITableViewCell {
+final class IntroduceCell: UITableViewCell {
     enum Constant {
         static let verticalInset: CGFloat = 5
         static let leadingInset: CGFloat = 20
@@ -37,6 +37,7 @@ class IntroduceCell: UITableViewCell {
     }
 }
 
+// MARK: - ViewConfiguration
 extension IntroduceCell: ViewConfiguration {
     func buildHierarchy() {
         contentView.addSubviews(titleLabel)

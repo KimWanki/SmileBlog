@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewContentCell: UITableViewCell {
+final class DetailViewContentCell: UITableViewCell {
     enum Constant {
         static let inset: CGFloat = 20
     }
@@ -41,6 +41,7 @@ class DetailViewContentCell: UITableViewCell {
     }
 }
 
+// MARK: - ViewConfiguration
 extension DetailViewContentCell: ViewConfiguration {
     func buildHierarchy() {
         contentView.addSubviews(titleLabel, dateLabel, contentLabel)
@@ -61,6 +62,14 @@ extension DetailViewContentCell: ViewConfiguration {
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constant.inset),
             contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.inset)
         ])
+    }
+    
+    func configureViews() {
+        self.selectedBackgroundView = {
+            let background = UIView()
+            background.backgroundColor = .clear
+            return background
+        }()
     }
 }
 

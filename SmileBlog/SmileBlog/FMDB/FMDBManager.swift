@@ -119,7 +119,7 @@ extension FMDBManager {
             SELECT *
             FROM comment
             WHERE comment_post = ?
-            ORDER BY comment_num DESC
+            ORDER BY comment_num ASC
             """
             
             let result = try fmdb.executeQuery(sql, values: [postNum])

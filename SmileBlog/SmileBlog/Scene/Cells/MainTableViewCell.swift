@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+final class MainTableViewCell: UITableViewCell {
     enum Constant {
         static let verticalInset: CGFloat = 5
         static let leadingInset: CGFloat = 20
@@ -34,6 +34,7 @@ class MainTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - ViewConfiguration
 extension MainTableViewCell: ViewConfiguration {
     func buildHierarchy() {
         vStackView.addArrangedSubviews(titleLabel, contentLabel, dateLabel, commentCountLabel)

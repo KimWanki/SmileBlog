@@ -11,7 +11,7 @@ protocol PostReloadable: NSObject {
     func reloadTableView(_ newPost: [Post])
 }
 
-class NewPostViewController: UIViewController {
+final class NewPostViewController: UIViewController {
     enum Constant {
         static let inset: CGFloat = 20
     }
@@ -64,7 +64,10 @@ class NewPostViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
-    
+}
+
+// MARK: - User Event
+extension NewPostViewController {
     @objc
     func clickCancelButton() {
         self.dismiss(animated: true, completion: nil)
@@ -86,9 +89,8 @@ class NewPostViewController: UIViewController {
                 self.delegate?.reloadTableView(post)
             }
         } else {
-            
+            debugPrint("Can't Save Post to Database")
         }
-        
     }
 
     @objc
@@ -126,6 +128,7 @@ extension NewPostViewController: UITextViewDelegate {
     }
 }
 
+// MARK: - ViewConfiguration
 extension NewPostViewController: ViewConfiguration {
     func buildHierarchy() {
         view.addSubviews(navigationBar, titleTextField, contentTextView)
@@ -156,6 +159,7 @@ extension NewPostViewController: ViewConfiguration {
     }
 }
 
+// MARK: - AlertController
 extension NewPostViewController {
     func showInputRequestAlert() {
         let alertController = UIAlertController(

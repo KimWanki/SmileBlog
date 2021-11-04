@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleTextField: UITextField {
+final class TitleTextField: UITextField {
 
     private lazy var underlintView: UIView = {
         let uiView = UIView()

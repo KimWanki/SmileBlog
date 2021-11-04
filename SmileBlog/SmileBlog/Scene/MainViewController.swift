@@ -149,19 +149,10 @@ extension MainViewController: ViewConfiguration {
     func setupToolBar() {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let addPostButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: #selector(clickNewPostButton))
-        
+        self.navigationController?.toolbar.backgroundColor = .systemGray6
         addPostButton.tintColor = .gray
         
         toolbarItems = [flexibleSpace, addPostButton, flexibleSpace]
-    }
-    
-    @objc func clickNewPostButton() {
-        let newPostViewController = NewPostViewController()
-        newPostViewController.view.backgroundColor = .white
-        newPostViewController.modalPresentationStyle = .fullScreen
-        
-        newPostViewController.delegate = self
-        self.present(newPostViewController, animated: true, completion: nil)
     }
     
     func setupTableView() {
@@ -172,6 +163,20 @@ extension MainViewController: ViewConfiguration {
         self.tableView.setContentOffset(offset, animated: false)
     }
 }
+
+// MARK: - Event
+extension MainViewController {
+    @objc
+    func clickNewPostButton() {
+        let newPostViewController = NewPostViewController()
+        newPostViewController.view.backgroundColor = .white
+        newPostViewController.modalPresentationStyle = .fullScreen
+        
+        newPostViewController.delegate = self
+        self.present(newPostViewController, animated: true, completion: nil)
+    }
+}
+
 
 // MARK: - UITableViewDataSource, UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -220,6 +225,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section != .zero {
             let detailViewController = DetailViewController()
+            detailViewController.delegate = self
             detailViewController.configure(postList[indexPath.row])
 
             self.navigationController?.pushViewController(detailViewController, animated: true)

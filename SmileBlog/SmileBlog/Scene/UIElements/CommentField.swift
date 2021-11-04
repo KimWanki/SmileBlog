@@ -7,7 +7,11 @@
 
 import UIKit
 
-class CommentField: UIView {
+final class CommentField: UIView {
+    enum Constant {
+        static let inset: CGFloat = 20
+        static let addButtonWidth: CGFloat = 100
+    }
     
     lazy var commentTextField: UITextField  = {
         let textField = UITextField(frame: .zero)
@@ -32,6 +36,7 @@ class CommentField: UIView {
     }
 }
 
+// MARK: - ViewConfiguration
 extension CommentField: ViewConfiguration {
     func buildHierarchy() {
         self.addSubviews(commentTextField, addButton)
@@ -39,15 +44,19 @@ extension CommentField: ViewConfiguration {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            commentTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            commentTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constant.inset),
             commentTextField.topAnchor.constraint(equalTo: self.topAnchor),
             commentTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            commentTextField.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: 20),
+            commentTextField.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: Constant.inset),
             
-            addButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            addButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Constant.inset),
             addButton.topAnchor.constraint(equalTo: self.topAnchor),
             addButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            addButton.widthAnchor.constraint(equalToConstant: 100)
+            addButton.widthAnchor.constraint(equalToConstant: Constant.addButtonWidth)
         ])
+    }
+    
+    func configureViews() {
+        addButton.tintColor = .gray
     }
 }

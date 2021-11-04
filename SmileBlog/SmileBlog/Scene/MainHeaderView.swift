@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainHeaderView: UIView {
+final class MainHeaderView: UIView {
     private var imageString: String = "headerViewImage"
     
     private lazy var imageView = {
@@ -30,6 +30,7 @@ class MainHeaderView: UIView {
     }
 }
 
+// MARK: - ViewConfiguration
 extension MainHeaderView: ViewConfiguration {
     func buildHierarchy() {
         self.addSubviews(imageView)

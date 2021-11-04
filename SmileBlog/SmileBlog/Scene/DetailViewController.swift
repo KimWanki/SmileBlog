@@ -7,11 +7,12 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     private var post: Post?
     private var commentList: [Comment] = []
     private var inputViewBottomConstraint: NSLayoutConstraint?
     
+    weak var delegate: PostReloadable?
     
     private lazy var contentTableView: UITableView = {
         let tableView = UITableView()
@@ -22,11 +23,22 @@ class DetailViewController: UIViewController {
         return tableView
     }()
     
-    private var commentView: CommentField = {
+    private lazy var commentView: CommentField = {
         let commentView = CommentField(frame: .zero)
-        commentView.backgroundColor = .yellow
+        commentView.backgroundColor = .systemGray6
+
         commentView.addButton.addTarget(self, action: #selector(clickDoneButton), for: .touchUpInside)
         return commentView
+    }()
+    
+    private lazy var modifyButton: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        return barButton
+    }()
+    
+    private lazy var deleteButton: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clickTrashButton))
+        return barButton
     }()
     
     override func viewDidLoad() {
@@ -73,25 +85,38 @@ class DetailViewController: UIViewController {
     @objc
     func clickDoneButton() {
         guard let postNumber = post?.number else { return }
+        
         let createDate = DateFormatter.getCurrent()
         let comment = Comment(number: nil,
-                              user: "동원",
+                              user: "토브",
                               post: postNumber,
                               content: self.commentView.commentTextField.text!,
                               date: createDate)
-
+            
         if FMDBManager.shared.add(comment) {
-            print("Saved")
-        } else {
-            print("Not Saved")
+            commentList = FMDBManager.shared.getComments(postNumber)
+            self.commentView.commentTextField.text = nil
+            DispatchQueue.main.async {
+                self.contentTableView.reloadData()
+                let indexPath = IndexPath(row: self.commentList.count, section: 0)
+                self.contentTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
-        commentList = FMDBManager.shared.getComments(postNumber)
-        DispatchQueue.main.async {
-            self.contentTableView.reloadData()
+    }
+    
+    @objc
+    func clickTrashButton() {
+        guard let selectedPost = self.post else { return }
+        if FMDBManager.shared.remove(post: selectedPost) {
+            print("delete")
         }
+        let post = FMDBManager.shared.getPosts()
+        delegate?.reloadTableView(post)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
+// MARK: - View Configuration
 extension DetailViewController: ViewConfiguration {
     func buildHierarchy() {
         view.addSubviews(contentTableView, commentView)
@@ -113,9 +138,11 @@ extension DetailViewController: ViewConfiguration {
     }
     
     func configureViews() {
+        
         self.contentTableView.dataSource = self
         self.contentTableView.delegate = self
         self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationItem.rightBarButtonItems = [deleteButton, modifyButton]
     }
 }
 
@@ -127,6 +154,7 @@ extension DetailViewController {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commentList.count + 1
