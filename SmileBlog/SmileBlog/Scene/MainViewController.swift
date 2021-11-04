@@ -39,10 +39,6 @@ final class MainViewController: UIViewController {
         applyViewSettings()
         self.postList = FMDBManager.shared.getPosts()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setToolbarHidden(false, animated: true)
-    }
 }
 
 // MARK: - ViewConfiguration
@@ -52,7 +48,7 @@ extension MainViewController: ViewConfiguration {
         setupConstraints()
         configureViews()
         setupNavigationBar()
-        setupToolBar()
+//        setupToolBar()
         setupTableView()
     }
     
@@ -143,18 +139,8 @@ extension MainViewController: ViewConfiguration {
         self.navigationController?.navigationBar.tintColor = .black
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
-        self.navigationController?.setToolbarHidden(false, animated: false)
     }
-    
-    func setupToolBar() {
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let addPostButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: #selector(clickNewPostButton))
-        self.navigationController?.toolbar.backgroundColor = .systemGray6
-        addPostButton.tintColor = .gray
-        
-        toolbarItems = [flexibleSpace, addPostButton, flexibleSpace]
-    }
-    
+
     func setupTableView() {
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
         tableView.register(IntroduceCell.self, forCellReuseIdentifier: IntroduceCell.reuseIdentifier)
@@ -227,7 +213,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             let detailViewController = DetailViewController()
             detailViewController.delegate = self
             detailViewController.configure(postList[indexPath.row])
-
+            self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

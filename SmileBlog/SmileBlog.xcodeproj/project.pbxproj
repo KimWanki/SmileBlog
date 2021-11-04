@@ -30,6 +30,8 @@
 		D1E618E72732A1D500F05301 /* DetailViewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */; };
 		D1E618E92732AE9100F05301 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618E82732AE9100F05301 /* Comment.swift */; };
 		D1E618ED2732C8A900F05301 /* blog.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D1E618EC2732C8A900F05301 /* blog.sqlite */; };
+		D1E618FE2733976100F05301 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618FD2733976100F05301 /* MainTabBarController.swift */; };
+		D1E619002733984900F05301 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618FF2733984900F05301 /* UserSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		D1E618E62732A1D500F05301 /* DetailViewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCommentCell.swift; sourceTree = "<group>"; };
 		D1E618E82732AE9100F05301 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D1E618EC2732C8A900F05301 /* blog.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = blog.sqlite; sourceTree = "<group>"; };
+		D1E618FD2733976100F05301 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		D1E618FF2733984900F05301 /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +115,12 @@
 				D1E618E127329F6500F05301 /* Cells */,
 				D1E618B927322B9C00F05301 /* UIElements */,
 				D156CFA7272C697900300CAE /* Protocol */,
+				D1E618FD2733976100F05301 /* MainTabBarController.swift */,
 				D156CF96272C65F100300CAE /* MainViewController.swift */,
 				D156CFB0272D097700300CAE /* MainHeaderView.swift */,
 				D17D07822731A8600038B423 /* NewPostViewController.swift */,
 				D1E618BC27325A3900F05301 /* DetailViewController.swift */,
+				D1E618FF2733984900F05301 /* UserSettingViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 				D17D07652730F8980038B423 /* IntroduceCell.swift in Sources */,
 				D156CFB5272D45E100300CAE /* MainTableViewCell.swift in Sources */,
 				D1E618B82732297600F05301 /* TitleTextField.swift in Sources */,
+				D1E618FE2733976100F05301 /* MainTabBarController.swift in Sources */,
 				D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */,
 				D17D076A273133380038B423 /* FMDBManager.swift in Sources */,
 				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,
@@ -280,6 +287,7 @@
 				D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */,
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,
 				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,
+				D1E619002733984900F05301 /* UserSettingViewController.swift in Sources */,
 				D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */,
 				D1E618E527329FBD00F05301 /* DetailViewContentCell.swift in Sources */,
 				D1E618E02732740600F05301 /* CommentField.swift in Sources */,
