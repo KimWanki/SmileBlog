@@ -22,6 +22,12 @@
 		D17D076D273134020038B423 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D17D076C273134020038B423 /* libsqlite3.tbd */; };
 		D17D077127316C600038B423 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = D17D077027316C600038B423 /* FMDB */; };
 		D17D07832731A8600038B423 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D07822731A8600038B423 /* NewPostViewController.swift */; };
+		D1B7C40727345FB40084527B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7C40627345FB40084527B /* NetworkManager.swift */; };
+		D1B7C414273467960084527B /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7C413273467960084527B /* HttpMethod.swift */; };
+		D1B7C416273467FF0084527B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7C415273467FF0084527B /* NetworkError.swift */; };
+		D1B7C41E273469670084527B /* SmileBlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7C41D273469670084527B /* SmileBlogTests.swift */; };
+		D1B7C42627346AF50084527B /* MockSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7C42527346AF50084527B /* MockSessionDataTask.swift */; };
+		D1B7C42827346BC20084527B /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7C42727346BC20084527B /* PostAPI.swift */; };
 		D1E618B82732297600F05301 /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618B72732297600F05301 /* TitleTextField.swift */; };
 		D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BA27323E8100F05301 /* DateFormatter.swift */; };
 		D1E618BD27325A3900F05301 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E618BC27325A3900F05301 /* DetailViewController.swift */; };
@@ -35,6 +41,16 @@
 		D1E619042733DD8100F05301 /* UpdatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E619032733DD8100F05301 /* UpdatePostViewController.swift */; };
 		D1E619062733E6C500F05301 /* PostReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E619052733E6C500F05301 /* PostReloadable.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1B7C41F273469670084527B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D156CF87272C65F100300CAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D156CF8E272C65F100300CAE;
+			remoteInfo = SmileBlog;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D156CF8F272C65F100300CAE /* SmileBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +70,13 @@
 		D17D076C273134020038B423 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D17D076E273134700038B423 /* SmileBlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmileBlog-Bridging-Header.h"; sourceTree = "<group>"; };
 		D17D07822731A8600038B423 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		D1B7C40627345FB40084527B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D1B7C413273467960084527B /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		D1B7C415273467FF0084527B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		D1B7C41B273469670084527B /* SmileBlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmileBlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B7C41D273469670084527B /* SmileBlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileBlogTests.swift; sourceTree = "<group>"; };
+		D1B7C42527346AF50084527B /* MockSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionDataTask.swift; sourceTree = "<group>"; };
+		D1B7C42727346BC20084527B /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		D1E618B72732297600F05301 /* TitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
 		D1E618BA27323E8100F05301 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		D1E618BC27325A3900F05301 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +101,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1B7C418273469670084527B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				D156CF91272C65F100300CAE /* SmileBlog */,
+				D1B7C41C273469670084527B /* SmileBlogTests */,
 				D156CF90272C65F100300CAE /* Products */,
 				D17D076B273134020038B423 /* Frameworks */,
 			);
@@ -94,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D156CF8F272C65F100300CAE /* SmileBlog.app */,
+				D1B7C41B273469670084527B /* SmileBlogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +133,7 @@
 		D156CF91272C65F100300CAE /* SmileBlog */ = {
 			isa = PBXGroup;
 			children = (
+				D1B7C40527345FA20084527B /* Network */,
 				D17D0766273121490038B423 /* FMDB */,
 				D156CFB8272D54FB00300CAE /* Model */,
 				D156CFAF272CE6E200300CAE /* Entry */,
@@ -184,6 +217,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D1B7C40527345FA20084527B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D1B7C40627345FB40084527B /* NetworkManager.swift */,
+				D1B7C413273467960084527B /* HttpMethod.swift */,
+				D1B7C415273467FF0084527B /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D1B7C41C273469670084527B /* SmileBlogTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1B7C42427346AE20084527B /* Mock */,
+				D1B7C41D273469670084527B /* SmileBlogTests.swift */,
+			);
+			path = SmileBlogTests;
+			sourceTree = "<group>";
+		};
+		D1B7C42427346AE20084527B /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				D1B7C42527346AF50084527B /* MockSessionDataTask.swift */,
+				D1B7C42727346BC20084527B /* PostAPI.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		D1E618B927322B9C00F05301 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +288,24 @@
 			productReference = D156CF8F272C65F100300CAE /* SmileBlog.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D1B7C41A273469670084527B /* SmileBlogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B7C421273469670084527B /* Build configuration list for PBXNativeTarget "SmileBlogTests" */;
+			buildPhases = (
+				D1B7C417273469670084527B /* Sources */,
+				D1B7C418273469670084527B /* Frameworks */,
+				D1B7C419273469670084527B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1B7C420273469670084527B /* PBXTargetDependency */,
+			);
+			name = SmileBlogTests;
+			productName = SmileBlogTests;
+			productReference = D1B7C41B273469670084527B /* SmileBlogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,6 +318,10 @@
 				TargetAttributes = {
 					D156CF8E272C65F100300CAE = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					D1B7C41A273469670084527B = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = D156CF8E272C65F100300CAE;
 					};
 				};
 			};
@@ -259,6 +342,7 @@
 			projectRoot = "";
 			targets = (
 				D156CF8E272C65F100300CAE /* SmileBlog */,
+				D1B7C41A273469670084527B /* SmileBlogTests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,6 +354,13 @@
 			files = (
 				D156CF9C272C65F400300CAE /* Assets.xcassets in Resources */,
 				D1E618ED2732C8A900F05301 /* blog.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B7C419273469670084527B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +383,7 @@
 				D17D076A273133380038B423 /* FMDBManager.swift in Sources */,
 				D156CFB1272D097700300CAE /* MainHeaderView.swift in Sources */,
 				D1E618BB27323E8100F05301 /* DateFormatter.swift in Sources */,
+				D1B7C40727345FB40084527B /* NetworkManager.swift in Sources */,
 				D156CF93272C65F100300CAE /* AppDelegate.swift in Sources */,
 				D156CF95272C65F100300CAE /* SceneDelegate.swift in Sources */,
 				D156CFB7272D4DDA00300CAE /* UIStackView+.swift in Sources */,
@@ -301,12 +393,32 @@
 				D1E618E02732740600F05301 /* CommentField.swift in Sources */,
 				D1E618E72732A1D500F05301 /* DetailViewCommentCell.swift in Sources */,
 				D1E618E92732AE9100F05301 /* Comment.swift in Sources */,
+				D1B7C414273467960084527B /* HttpMethod.swift in Sources */,
+				D1B7C416273467FF0084527B /* NetworkError.swift in Sources */,
 				D156CFAC272C6C7E00300CAE /* UIView+.swift in Sources */,
 				D156CFBB272D552400300CAE /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1B7C417273469670084527B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B7C41E273469670084527B /* SmileBlogTests.swift in Sources */,
+				D1B7C42627346AF50084527B /* MockSessionDataTask.swift in Sources */,
+				D1B7C42827346BC20084527B /* PostAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1B7C420273469670084527B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D156CF8E272C65F100300CAE /* SmileBlog */;
+			targetProxy = D1B7C41F273469670084527B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D156CFA1272C65F400300CAE /* Debug */ = {
@@ -481,6 +593,54 @@
 			};
 			name = Release;
 		};
+		D1B7C422273469670084527B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6U5233X9SB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dongguk.cs.SmileBlogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmileBlog.app/SmileBlog";
+			};
+			name = Debug;
+		};
+		D1B7C423273469670084527B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6U5233X9SB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dongguk.cs.SmileBlogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmileBlog.app/SmileBlog";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -498,6 +658,15 @@
 			buildConfigurations = (
 				D156CFA4272C65F400300CAE /* Debug */,
 				D156CFA5272C65F400300CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1B7C421273469670084527B /* Build configuration list for PBXNativeTarget "SmileBlogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B7C422273469670084527B /* Debug */,
+				D1B7C423273469670084527B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
