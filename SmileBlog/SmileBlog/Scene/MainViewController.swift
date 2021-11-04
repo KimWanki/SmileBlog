@@ -48,7 +48,6 @@ extension MainViewController: ViewConfiguration {
         setupConstraints()
         configureViews()
         setupNavigationBar()
-//        setupToolBar()
         setupTableView()
     }
     
@@ -110,11 +109,10 @@ extension MainViewController: ViewConfiguration {
         
         navigationHeightWithStatusBarHeight = navigationBarHeight + statusBarHeight
         
-        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationItem.title = "루얀의 애플🍏 공간"
         self.navigationController?.navigationBar.isTranslucent = true
-        
-        navigationItem.title = "루얀의 애플🍏 공간"
-        navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.tintColor = .white
         
         let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
                                            style: .plain,
@@ -129,15 +127,12 @@ extension MainViewController: ViewConfiguration {
                                             target: nil,
                                             action: nil)
         
-        searchButton.tintColor = .darkGray
-        settingButton.tintColor = .darkGray
-        menuButton.tintColor = .darkGray
-        
         navigationItem.leftBarButtonItem = settingButton
         navigationItem.rightBarButtonItems = [menuButton, searchButton]
         
-        self.navigationController?.navigationBar.tintColor = .black
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 
@@ -213,6 +208,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             let detailViewController = DetailViewController()
             detailViewController.delegate = self
             detailViewController.configure(postList[indexPath.row])
+            self.navigationController?.navigationBar.isTranslucent = false
             self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
@@ -222,6 +218,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 extension MainViewController: PostReloadable {
     func reloadTableView(_ newPost: [Post]) {
         self.postList = newPost
+        self.navigationController?.navigationBar.isTranslucent = true
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

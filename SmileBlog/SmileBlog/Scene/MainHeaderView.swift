@@ -46,7 +46,9 @@ extension MainHeaderView: ViewConfiguration {
     }
     
     func configureViews() {
-        imageView.image = UIImage(named: imageString)
+        DispatchQueue.main.async {
+            self.imageView.image = UIImage(named: self.imageString)
+        }
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
     }
