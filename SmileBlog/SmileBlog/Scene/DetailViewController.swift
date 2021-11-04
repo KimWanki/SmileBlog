@@ -26,8 +26,8 @@ final class DetailViewController: UIViewController {
     private lazy var commentView: CommentField = {
         let commentView = CommentField(frame: .zero)
         commentView.backgroundColor = .systemGray6
-
-        commentView.addButton.addTarget(self, action: #selector(clickDoneButton), for: .touchUpInside)
+        
+        commentView.addButton.addTarget(self, action: #selector(clickAddButton), for: .touchUpInside)
         return commentView
     }()
     
@@ -67,10 +67,9 @@ final class DetailViewController: UIViewController {
             UIView.animate(withDuration: duration) {
                 self.view.layoutIfNeeded()
             }
-
         }
     }
-
+    
     @objc
     func keyboardHide(_ notification: Notification) {
         guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval
@@ -83,7 +82,7 @@ final class DetailViewController: UIViewController {
     }
     
     @objc
-    func clickDoneButton() {
+    func clickAddButton() {
         guard let postNumber = post?.number else { return }
         
         let createDate = DateFormatter.getCurrent()
@@ -102,6 +101,7 @@ final class DetailViewController: UIViewController {
                 self.contentTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
         }
+        self.view.endEditing(true)
     }
     
     @objc
