@@ -212,6 +212,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
