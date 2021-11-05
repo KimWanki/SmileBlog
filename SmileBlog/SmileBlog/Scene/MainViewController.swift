@@ -98,7 +98,6 @@ extension MainViewController: ViewConfiguration {
         
         postTableView.dataSource = self
         postTableView.delegate = self
-    
     }
     
     func setupNavigationBar() {

@@ -37,7 +37,6 @@ final class DetailViewController: UIViewController {
     
     private lazy var modifyButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(clickModifyButton))
-//        let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(clickModifyButton))
         return barButton
     }()
     

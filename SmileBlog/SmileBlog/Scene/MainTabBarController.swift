@@ -11,7 +11,8 @@ class MainTabBarController: UITabBarController {
     
     private let mainViewController = MainViewController()
     private let newPostViewController = NewPostViewController()
-    private let userSettingViewController = UserSettingViewController()
+    private let myPageViewController = MyPageViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configurationTapBar()
@@ -22,11 +23,11 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController {
     func configurationTapBar() {
         let mainNavigationController = UINavigationController(rootViewController: mainViewController)
-        let userSettingNavigationController = UINavigationController(rootViewController: userSettingViewController)
+        let myPageNavigationController = UINavigationController(rootViewController: myPageViewController)
         
         self.viewControllers = [mainNavigationController,
                                 newPostViewController,
-                                userSettingNavigationController]
+                                myPageNavigationController]
         
         let mainTabBarItem = UITabBarItem(title: "홈",
                                            image: UIImage(systemName: "house.fill"),
@@ -34,13 +35,13 @@ extension MainTabBarController {
         let newPostTabBarItem = UITabBarItem(title: "글 작성",
                                            image: UIImage(systemName: "note.text.badge.plus"),
                                            tag: 1)
-        let userSettingTabBarItem = UITabBarItem(title: "사용자 설정",
+        let userSettingTabBarItem = UITabBarItem(title: "마이페이지",
                                             image: UIImage(systemName: "person.fill"),
                                             tag: 2)
         mainTabBarItem.standardAppearance?.selectionIndicatorTintColor = .red
         mainNavigationController.tabBarItem = mainTabBarItem
         newPostViewController.tabBarItem = newPostTabBarItem
-        userSettingNavigationController.tabBarItem = userSettingTabBarItem
+        myPageNavigationController.tabBarItem = userSettingTabBarItem
         
         self.delegate = self
         self.tabBar.selectedItem?.badgeColor = .gray
