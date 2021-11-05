@@ -57,6 +57,7 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return MyPageHeaderView()
     }
@@ -66,6 +67,17 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let alert = UIAlertController(title: nil,
+                                          message: "닉네임을 입력하세요",
+                                          preferredStyle: .alert)
+            alert.addTextField {
+                $0.text = "아직 설정되지 않았어요."
+            }
+            alert.addAction(UIAlertAction(title: "완료", style: .default, handler: nil))
+            
+            self.present(alert, animated: false, completion: nil)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
