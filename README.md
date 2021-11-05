@@ -57,6 +57,13 @@
 |:-:|:-:|:-:|:-:|
 |<img src="https://i.imgur.com/un5gVYf.gif" width=220>|<img src = "https://i.imgur.com/ub6Gxa9.png" width = 220>|<img src = "https://i.imgur.com/jq1Fqmq.png" width = 220>|<img src = "https://i.imgur.com/eFhlylR.png" width = 220>|
 
+### 마이 페이지
+> 이미 로그인이 되어 있다고 가정했을 때, 유저 설정을 위해 추가 구현함. 정보 수정 요청에 따른 얼럿 뷰 구현 외
+> 추가적인 기능 구현을 하진 않았음.
+
+|마이 페이지|정보 수정 요청|
+|:-:|:-:|
+|<img src="https://i.imgur.com/BB2NpMn.png" width=200>|<img src = "https://i.imgur.com/c07Yad7.png" width = 200>|
 
 
 ## 설계 및 구현
